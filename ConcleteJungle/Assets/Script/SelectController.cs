@@ -15,7 +15,7 @@ public class SelectController : MonoBehaviour {
 		
 	}
 
-    public void StartButtonDown()
+    public void SoloButtonDown()
     {
         SceneManager.LoadScene("Solo");
     }
