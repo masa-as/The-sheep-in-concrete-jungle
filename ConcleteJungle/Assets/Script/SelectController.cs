@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SelectController : MonoBehaviour {
 
@@ -13,4 +14,9 @@ public class SelectController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void StartButtonDown()
+    {
+        SceneManager.LoadScene("Solo");
+    }
 }
