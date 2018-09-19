@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\ResultDirector.cs" />
      <Compile Include="Assets\Script\TitleController.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/Users/masa/MockIronLeague2018-Team3/ConcleteJungle/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
