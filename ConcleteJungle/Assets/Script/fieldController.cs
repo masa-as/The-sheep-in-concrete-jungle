@@ -10,7 +10,6 @@ public class fieldController : MonoBehaviour {
 
     GameObject[] build;
 
-    public GameObject ceiling;
     public GameObject ground;
 
     private Vector3 pos_ground;
