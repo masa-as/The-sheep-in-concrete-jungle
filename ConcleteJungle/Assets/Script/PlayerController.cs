@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour {
     float dirY, dirX;
     float leng;
     public GameObject ceiling;
+    float ceiling_y;
     public GameObject itoPrafab;
     GameObject ito;
     HingeJoint joint, joint_ito;
 
 	// Use this for initialization
 	void Start () {
-        
+        ceiling_y = ceiling.transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour {
         if(Input.GetMouseButtonDown(0)){
             pos = transform.position;
             pos_ito = pos;
-            dirY = 10.0f - pos.y;
+            dirY = ceiling_y - pos.y;
             dirX = dirY;
             leng = Mathf.Sqrt(dirX * dirX + dirY * dirY) * 0.065f;//画像差し替えたら調節
             ito = Instantiate(itoPrafab) as GameObject;
