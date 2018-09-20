@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour {
             joint_ito.connectedBody = rb_ceil;
             joint_ito.anchor = new Vector3(0, dirY/2f+0.8f, 0);//画像差し替えたら調節
             joint_ito.axis = new Vector3(0, 0, 1);
+            //糸の長さによる
+            rb_player.AddForce(leng*20, -leng*20, 0, ForceMode.Impulse);
         }
 
         if(Input.GetMouseButtonUp(0)){
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         if(pos_camera.x <= target_pos){
-            pos_camera.x += 0.5f;
+            pos_camera.x += 2.5f;
             Camera.main.transform.position = pos_camera;
         }
     }
