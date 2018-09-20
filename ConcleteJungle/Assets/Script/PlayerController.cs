@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject itoPrafab;
     GameObject ito;
     HingeJoint joint, joint_ito;
+//    public GameObject PauseScript;
+
 
 	// Use this for initialization
 	void Start () {
@@ -22,10 +24,15 @@ public class PlayerController : MonoBehaviour {
         target_pos = pos_camera.x;
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	// Update is called once per
+    void Update () {
+//        PauseScript pauseScript = PauseScript.GetComponent<PauseScript>();
+        int ito_flag2 =PauseScript.GetItoFlag();
         if(Input.GetMouseButtonDown(0)){
             Destroy(start_build);
+        }
+        Debug.Log(ito_flag2);
+        if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
             pos = transform.position;
             pos_ito = pos;
             dirY = ceiling_y - pos.y;
@@ -49,7 +56,6 @@ public class PlayerController : MonoBehaviour {
             joint_ito.connectedBody = rb_ceil;
             joint_ito.anchor = new Vector3(0, dirY/2f+0.8f, 0);//画像差し替えたら調節
             joint_ito.axis = new Vector3(0, 0, 1);
-
         }
 
         if(Input.GetMouseButtonUp(0)){
@@ -63,6 +69,5 @@ public class PlayerController : MonoBehaviour {
             pos_camera.x += 0.5f;
             Camera.main.transform.position = pos_camera;
         }
-
-	}
+    }
 }
