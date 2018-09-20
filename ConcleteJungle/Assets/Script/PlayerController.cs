@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    Vector3 pos, pos_ito;
+    Vector3 pos, pos_ito, pos_camera;
     float dirY, dirX;
     float leng;
+    float target_pos;
     public GameObject ceiling;
+    public GameObject start_build;
     float ceiling_y;
     public GameObject itoPrafab;
     GameObject ito;
@@ -16,11 +18,14 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ceiling_y = ceiling.transform.position.y;
+        pos_camera = Camera.main.transform.position;
+        target_pos = pos_camera.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if(Input.GetMouseButtonDown(0)){
+            Destroy(start_build);
             pos = transform.position;
             pos_ito = pos;
             dirY = ceiling_y - pos.y;
@@ -51,6 +56,12 @@ public class PlayerController : MonoBehaviour {
             Destroy(ito);
             Destroy(joint);
             joint = null;
+            target_pos = transform.position.x+20.0f;
+        }
+
+        if(pos_camera.x <= target_pos){
+            pos_camera.x += 0.5f;
+            Camera.main.transform.position = pos_camera;
         }
 
 	}
