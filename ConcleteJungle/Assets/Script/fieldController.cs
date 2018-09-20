@@ -10,10 +10,8 @@ public class fieldController : MonoBehaviour {
 
     GameObject[] build;
 
-    public GameObject ceiling;
     public GameObject ground;
 
-    private Vector3 pos_ceiling;
     private Vector3 pos_ground;
     private Vector3[] pos_building;
     private Vector3 pos_camera;
@@ -22,7 +20,6 @@ public class fieldController : MonoBehaviour {
     bool one = false;
 	// Use this for initialization
 	void Start () {
-        pos_ceiling = ceiling.transform.position;
         pos_ground = ground.transform.position;
         pos_camera = Camera.main.transform.position;
         build = new GameObject[10];

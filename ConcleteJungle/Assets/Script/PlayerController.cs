@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject itoPrafab;
     GameObject ito;
     HingeJoint joint, joint_ito;
-//    public GameObject PauseScript;
+
 
 
 	// Use this for initialization
@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per
     void Update () {
-//        PauseScript pauseScript = PauseScript.GetComponent<PauseScript>();
         int ito_flag2 =PauseScript.GetItoFlag();
         if(Input.GetMouseButtonDown(0)){
             Destroy(start_build);
