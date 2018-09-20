@@ -159,7 +159,6 @@ MonoBehaviour:
     type: 2}
   build_c_pre: {fileID: 1650813982300366, guid: 594d79a85ff3144e08a334cb058cb76e,
     type: 2}
-  ceiling: {fileID: 1402106436}
   ground: {fileID: 959274770}
 --- !u!1 &432905249
 GameObject:
@@ -546,7 +545,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 637536595}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 637536593}
+        m_MethodName: EndButtonDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &637536595
@@ -1219,8 +1229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47854c629ad64024b2632b1ffa1ab10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minute: 0
-  seconds: 0
 --- !u!1 &1371137884
 GameObject:
   m_ObjectHideFlags: 0

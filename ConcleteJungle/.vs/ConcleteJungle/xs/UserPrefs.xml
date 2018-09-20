@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{516DEA56-6EB1-953A-5651-77F75F7E69BF}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/TimerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/PauseScript.cs">
     <Files>
       <File FileName="Assets/Script/ResultDirector.cs" Line="21" Column="40" />
-      <File FileName="Assets/Script/TimerScript.cs" Line="3" Column="1" />
+      <File FileName="Assets/Script/TimerScript.cs" Line="2" Column="10" />
+      <File FileName="Assets/Script/PauseScript.cs" Line="32" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
