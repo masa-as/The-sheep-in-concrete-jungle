@@ -15,13 +15,13 @@ public class ResultDirector : MonoBehaviour {
 		
 	}
 
-    public void AgainButtonDown()
+    public void SoloAgainButtonDown()
     {
 		Debug.Log("Solo");
         SceneManager.LoadScene("Solo");
     }
 
-    public void AgainButton2Down()
+    public void MultiAgainButtonDown()
     {
 		Debug.Log("Multi");
         //SceneManager.LoadScene("Multi");
