@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour {
         if(Input.GetMouseButtonDown(0)){
             Destroy(start_build);
         }
-        Debug.Log(ito_flag2);
         if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
             pos = transform.position;
             pos_ito = pos;
