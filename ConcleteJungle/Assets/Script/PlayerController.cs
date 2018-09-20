@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour {
             joint_ito.connectedBody = rb_ceil;
             joint_ito.anchor = new Vector3(0, dirY/2f+0.8f, 0);//画像差し替えたら調節
             joint_ito.axis = new Vector3(0, 0, 1);
+            target_pos = transform.position.x + 20.0f;
             //糸の長さによる
             rb_player.AddForce(leng*20, -leng*20, 0, ForceMode.Impulse);
         }
@@ -63,9 +65,9 @@ public class PlayerController : MonoBehaviour {
             Destroy(ito);
             Destroy(joint);
             joint = null;
-            target_pos = transform.position.x+20.0f;
             ceiling_pos.x = transform.position.x;
             ceiling.transform.position = ceiling_pos;
+            target_pos = transform.position.x + 20.0f;
         }
 
         if(pos_camera.x <= target_pos){
@@ -73,4 +75,18 @@ public class PlayerController : MonoBehaviour {
             Camera.main.transform.position = pos_camera;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "ground")
+        {
+            SceneManager.LoadScene("result");
+        }
+        if (collision.gameObject.name == "Goal")
+        {
+            SceneManager.LoadScene("result");
+        }
+    }
+
+
 }

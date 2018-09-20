@@ -8,19 +8,23 @@ public class fieldController : MonoBehaviour {
     public GameObject build_b_pre;
     public GameObject build_c_pre;
 
+    public int goal_appear;
+
     GameObject[] build;
 
     public GameObject ground;
     public GameObject player;
+    public GameObject goal;
 
     private Vector3 pos_ground;
     private Vector3[] pos_building;
     private Vector3 pos_player;
 
-    int build_counter = 0;
-
+    int build_counter;
+    bool one_goal = true;
 	// Use this for initialization
 	void Start () {
+        build_counter = 0;
         pos_ground = ground.transform.position;
         pos_player = player.transform.position;
         build = new GameObject[10];
@@ -52,9 +56,9 @@ public class fieldController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetMouseButtonUp(0)){
+        if(Input.GetMouseButtonUp(0) && one_goal){
             pos_player = player.transform.position;
-            while (pos_building[build_counter % 10].x < pos_player.x - 5f)
+            while (pos_building[build_counter % 10].x < pos_player.x - 10f)
             {
                 Destroy(build[build_counter % 10]);
                 int v = Random.Range(0, 3);
@@ -85,6 +89,12 @@ public class fieldController : MonoBehaviour {
             pos_ground.x = pos_player.x;
             ground.transform.position = pos_ground;
         }
-
+        if(build_counter >= goal_appear && one_goal){
+            goal.transform.position = new Vector3(build_counter * 7.5f, 0f, 0f);
+            for (int i = 0; i < 10; i++){
+                Destroy(build[i]);
+            }
+            one_goal = false;
+        }
 	}
 }

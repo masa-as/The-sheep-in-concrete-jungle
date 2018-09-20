@@ -43,6 +43,6 @@ public class TimerScript : MonoBehaviour {
 
 		text.text = "[Time] " + minText + ":" + secText + ":" + msecText ;
 
-		Debug.Log (time);
+		//Debug.Log (time);
 	}
 }
