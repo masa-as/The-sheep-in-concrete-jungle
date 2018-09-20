@@ -11,15 +11,13 @@ public class PlayerController : MonoBehaviour {
     public GameObject itoPrafab;
     GameObject ito;
     HingeJoint joint, joint_ito;
+//    public GameObject PauseScript;
 
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if(Input.GetMouseButtonDown(0)){
+    void Update () {
+//        PauseScript pauseScript = PauseScript.GetComponent<PauseScript>();
+        int ito_flag2 =PauseScript.GetItoFlag();
+        Debug.Log(ito_flag2);
+        if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
             pos = transform.position;
             pos_ito = pos;
             dirY = 10.0f - pos.y;
@@ -51,6 +49,5 @@ public class PlayerController : MonoBehaviour {
             Destroy(joint);
             joint = null;
         }
-
-	}
+    }
 }
