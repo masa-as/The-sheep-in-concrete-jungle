@@ -9,32 +9,32 @@ public class PlayerController : MonoBehaviour {
     float leng;
     float target_pos;
     public GameObject ceiling;
-    public GameObject start_build;
-    float ceiling_y;
+    Vector3 ceiling_pos;
     public GameObject itoPrafab;
     GameObject ito;
     HingeJoint joint, joint_ito;
-//    public GameObject PauseScript;
+    Rigidbody rb_player;
+
 
 
 	// Use this for initialization
 	void Start () {
-        ceiling_y = ceiling.transform.position.y;
+        ceiling_pos = ceiling.transform.position;
         pos_camera = Camera.main.transform.position;
         target_pos = pos_camera.x;
+        rb_player = GetComponent<Rigidbody>();
+        rb_player.AddForce(30, 0, 0, ForceMode.Impulse);
+        ceiling_pos.x = transform.position.x;
+        ceiling.transform.position = ceiling_pos;
 	}
 	
 	// Update is called once per
     void Update () {
-//        PauseScript pauseScript = PauseScript.GetComponent<PauseScript>();
         int ito_flag2 =PauseScript.GetItoFlag();
-        if(Input.GetMouseButtonDown(0)){
-            Destroy(start_build);
-        }
         if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
             pos = transform.position;
             pos_ito = pos;
-            dirY = ceiling_y - pos.y;
+            dirY = ceiling_pos.y - pos.y;
             dirX = dirY;
             leng = Mathf.Sqrt(dirX * dirX + dirY * dirY) * 0.065f;//画像差し替えたら調節
             ito = Instantiate(itoPrafab) as GameObject;
@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour {
             Destroy(joint);
             joint = null;
             target_pos = transform.position.x+20.0f;
+            ceiling_pos.x = transform.position.x;
+            ceiling.transform.position = ceiling_pos;
         }
 
         if(pos_camera.x <= target_pos){

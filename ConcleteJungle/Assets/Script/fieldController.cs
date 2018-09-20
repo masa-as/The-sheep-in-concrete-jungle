@@ -13,7 +13,6 @@ public class fieldController : MonoBehaviour {
     public GameObject ceiling;
     public GameObject ground;
 
-    private Vector3 pos_ceiling;
     private Vector3 pos_ground;
     private Vector3[] pos_building;
     private Vector3 pos_camera;
@@ -22,7 +21,6 @@ public class fieldController : MonoBehaviour {
     bool one = false;
 	// Use this for initialization
 	void Start () {
-        pos_ceiling = ceiling.transform.position;
         pos_ground = ground.transform.position;
         pos_camera = Camera.main.transform.position;
         build = new GameObject[10];
@@ -80,10 +78,14 @@ public class fieldController : MonoBehaviour {
             }
             build[build_counter % 10].transform.position = pos_building[build_counter % 10];
             build_counter++;
+            pos_ground.x += 7.5f;
+            ground.transform.position = pos_ground;
             one = false;
         }
         if(pos_camera != Camera.main.transform.position){
             one = true;
+
+
         }
         pos_camera = Camera.main.transform.position;
 	}
