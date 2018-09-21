@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
                 joint = gameObject.AddComponent<HingeJoint>();
                 Rigidbody rb = ito.GetComponent<Rigidbody>();
                 joint.connectedBody = rb;
-                joint.anchor = new Vector3(1.5f, 1.2f, 0);
+                joint.anchor = new Vector3(0.2f, 0.0f, 0);
                 joint.axis = new Vector3(0, 0, 1);
 
                 joint_ito = ito.gameObject.AddComponent<HingeJoint>();
