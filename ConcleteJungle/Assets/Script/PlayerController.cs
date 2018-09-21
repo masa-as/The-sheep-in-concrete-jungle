@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour {
             joint = null;
             ceiling_pos.x = transform.position.x;
             ceiling.transform.position = ceiling_pos;
-            target_pos = transform.position.x + 20.0f;
+            target_pos = transform.position.x + 25.0f;
         }
 
         if(pos_camera.x <= target_pos){
