@@ -7,10 +7,12 @@ public class fieldController : MonoBehaviour {
     public GameObject build_a_pre;
     public GameObject build_b_pre;
     public GameObject build_c_pre;
+    public GameObject wool_prefab;
 
     public int goal_appear;
 
     GameObject[] build;
+    GameObject wool;
 
     public GameObject ground;
     public GameObject player;
@@ -19,11 +21,13 @@ public class fieldController : MonoBehaviour {
     private Vector3 pos_ground;
     private Vector3[] pos_building;
     private Vector3 pos_player;
+    private Vector3 pos_wool;
 
     int build_counter;
     bool one_goal = true;
 	// Use this for initialization
-	void Start () {
+    void Start (){
+        one_goal = true;
         Time.timeScale = 1f;
         PauseScript.ito_flag=1;
         build_counter = 0;
@@ -90,7 +94,13 @@ public class fieldController : MonoBehaviour {
             }
             pos_ground.x = pos_player.x;
             ground.transform.position = pos_ground;
+
+            //woolのプレハブ
+            wool = Instantiate(wool_prefab) as GameObject;
+            pos_wool = new Vector3(player.transform.position.x+30f, Random.Range(5.0f, 10.0f), 0.0f);
+            wool.transform.position = pos_wool;
         }
+
         if(build_counter >= goal_appear && one_goal){
             goal.transform.position = new Vector3(build_counter * 7.5f, 0f, 0f);
             for (int i = 0; i < 10; i++){
