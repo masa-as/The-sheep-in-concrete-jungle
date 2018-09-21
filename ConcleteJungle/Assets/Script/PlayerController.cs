@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -16,11 +17,11 @@ public class PlayerController : MonoBehaviour {
     HingeJoint joint, joint_ito;
     Rigidbody rb_player;
     public float wool;
+    Slider _slider;
 
-
-	// Use this for initialization
-	void Start () {
-        wool = 100f;
+    // Use this for initialization
+    void Start () {
+        wool = 30f;
         ceiling_pos = ceiling.transform.position;
         pos_camera = Camera.main.transform.position;
         target_pos = pos_camera.x;
@@ -28,9 +29,12 @@ public class PlayerController : MonoBehaviour {
         rb_player.AddForce(30, 0, 0, ForceMode.Impulse);
         ceiling_pos.x = transform.position.x;
         ceiling.transform.position = ceiling_pos;
-	}
-	
-	// Update is called once per
+        // スライダーを取得する
+        _slider = GameObject.Find("WoolBar").GetComponent<Slider>();
+
+    }
+
+    // Update is called once per
     void Update () {
         int ito_flag2 =PauseScript.GetItoFlag();
         if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
@@ -78,6 +82,9 @@ public class PlayerController : MonoBehaviour {
             pos_camera.x += 2.5f;
             Camera.main.transform.position = pos_camera;
         }
+        //ウールバー長さ更新
+        Debug.Log(wool);
+        _slider.value = wool/100;
     }
 
     private void OnCollisionEnter(Collision collision)
