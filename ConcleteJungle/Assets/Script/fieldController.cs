@@ -6,107 +6,52 @@ public class fieldController : MonoBehaviour {
 
     public GameObject build_a_pre;
     public GameObject build_b_pre;
-    public GameObject build_c_pre;
-    public GameObject wool_prefab;
 
     public int goal_appear;
 
-    GameObject[] build;
-    GameObject wool;
+    GameObject build;
 
-    public GameObject ground;
     public GameObject player;
     public GameObject goal;
+    public GameObject ceiling;
+    public GameObject ground;
+    public GameObject background;
 
-    private Vector3 pos_ground;
-    private Vector3[] pos_building;
+
+    private Vector3 pos_building;
     private Vector3 pos_player;
-    private Vector3 pos_wool;
 
+    float length;
     int build_counter;
-    bool one_goal = true;
 	// Use this for initialization
     void Start (){
-        one_goal = true;
         Time.timeScale = 1f;
         PauseScript.ito_flag=1;
         build_counter = 0;
-        pos_ground = ground.transform.position;
-        pos_player = player.transform.position;
-        build = new GameObject[10];
-        pos_building = new Vector3[10];
-        for (int i = 0; i < 10; i++){
-            int v = Random.Range(0, 3);
+        for (int i = 0; i < goal_appear; i++){
+            int v = Random.Range(0, 2);
             if(v == 0){
-                build[i] = Instantiate(build_a_pre) as GameObject;
-                float build_scale = Random.Range(0.7f, 1.2f);//本素材にした時調節
-                build[i].transform.localScale = new Vector3(build_scale, build_scale, 0f);
-                pos_building[i] = new Vector3(build_counter * 7.5f, 0f+(build_scale-1)*5f, 0f);//本素材にした時に調節
+                build = Instantiate(build_a_pre) as GameObject;
+                pos_building = new Vector3(build_counter * 27f, 3f, 0f);//本素材にした時に調節
             }
             else if(v == 1){
-                build[i] = Instantiate(build_b_pre) as GameObject;
-                float build_scale = Random.Range(0.7f, 1.2f);//本素材にした時調節
-                build[i].transform.localScale = new Vector3(build_scale, build_scale, 0f);
-                pos_building[i] = new Vector3(build_counter * 7.5f, -1.0f+(build_scale-1) * 5f, 0f);//本素材にした時に調節
+                build = Instantiate(build_b_pre) as GameObject;
+                pos_building = new Vector3(build_counter * 27f, 5f, 0f);//本素材にした時に調節
             }
-            else if(v == 2){
-                build[i] = Instantiate(build_c_pre) as GameObject;
-                float build_scale = Random.Range(0.7f, 1.2f);//本素材にした時調節
-                build[i].transform.localScale = new Vector3(build_scale, build_scale, 0f);
-                pos_building[i] = new Vector3(build_counter * 7.5f, 4.5f+(build_scale-1) *3.5f, 0f);//本素材にした時に調節
-            }
-            build[i].transform.position = pos_building[i];
+            build.transform.position = pos_building;
             build_counter++;
         }
+        pos_building = new Vector3(build_counter * 27f, -5f, 0f);
+        goal.transform.position = pos_building;
+        length = pos_building.x;
+        ceiling.transform.localScale = new Vector3(length+50f, 1f, 20.0f);
+        ceiling.transform.position = new Vector3((length + 50f) / 2f, 20f, 0f);
+
+        ground.transform.localScale = new Vector3(length + 50f, 1f, 10.0f);
+        ground.transform.position = new Vector3((length + 50f) / 2f, -10f, 0f);
+
+        background.transform.localScale = new Vector3(5f, (length / 1350f) * 60f, 20.0f);
+        background.transform.position = new Vector3(length / 2f, 15f, 0f);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        if(Input.GetMouseButtonUp(0) && one_goal){
-            pos_player = player.transform.position;
-            while (pos_building[build_counter % 10].x < pos_player.x - 10f)
-            {
-                Destroy(build[build_counter % 10]);
-                int v = Random.Range(0, 3);
-                if (v == 0)
-                {
-                    build[build_counter % 10] = Instantiate(build_a_pre) as GameObject;
-                    float build_scale = Random.Range(0.7f, 1.2f);//本素材にした時調節
-                    build[build_counter % 10].transform.localScale = new Vector3(build_scale, build_scale, 0f);
-                    pos_building[build_counter % 10] = new Vector3(build_counter * 7.5f, 0f + (build_scale - 1) * 5f, 0f);//本素材にした時に調節
-                }
-                else if (v == 1)
-                {
-                    build[build_counter % 10] = Instantiate(build_b_pre) as GameObject;
-                    float build_scale = Random.Range(0.7f, 1.2f);//本素材にした時調節
-                    build[build_counter % 10].transform.localScale = new Vector3(build_scale, build_scale, 0f);
-                    pos_building[build_counter % 10] = new Vector3(build_counter * 7.5f, -1.0f + (build_scale - 1) * 5f, 0f);//本素材にした時に調節
-                }
-                else if (v == 2)
-                {
-                    build[build_counter % 10] = Instantiate(build_c_pre) as GameObject;
-                    float build_scale = Random.Range(0.7f, 1.2f);//本素材にした時調節
-                    build[build_counter % 10].transform.localScale = new Vector3(build_scale, build_scale, 0f);
-                    pos_building[build_counter % 10] = new Vector3(build_counter * 7.5f, 4.5f + (build_scale - 1) * 3.5f, 0f);//本素材にした時に調節
-                }
-                build[build_counter % 10].transform.position = pos_building[build_counter % 10];
-                build_counter++;
-            }
-            pos_ground.x = pos_player.x;
-            ground.transform.position = pos_ground;
-
-            //woolのプレハブ
-            wool = Instantiate(wool_prefab) as GameObject;
-            pos_wool = new Vector3(player.transform.position.x+30f, Random.Range(5.0f, 10.0f), 0.0f);
-            wool.transform.position = pos_wool;
-        }
-
-        if(build_counter >= goal_appear && one_goal){
-            goal.transform.position = new Vector3(build_counter * 7.5f, 0f, 0f);
-            for (int i = 0; i < 10; i++){
-                Destroy(build[i]);
-            }
-            one_goal = false;
-        }
-	}
 }

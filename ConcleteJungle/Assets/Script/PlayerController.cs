@@ -10,24 +10,24 @@ public class PlayerController : MonoBehaviour {
     float leng;
     float target_pos;
     public GameObject ceiling;
+    public GameObject woolPrefab;
+    GameObject wool;
     Vector3 ceiling_pos;
     public GameObject itoPrafab;
     GameObject ito;
     HingeJoint joint, joint_ito;
     Rigidbody rb_player;
-    public float wool;
+    public float wool_count;
+    public int p; //woolの出現確率
 
 
 	// Use this for initialization
 	void Start () {
-        wool = 100f;
         ceiling_pos = ceiling.transform.position;
         pos_camera = Camera.main.transform.position;
         target_pos = pos_camera.x;
         rb_player = GetComponent<Rigidbody>();
         rb_player.AddForce(30, 0, 0, ForceMode.Impulse);
-        ceiling_pos.x = transform.position.x;
-        ceiling.transform.position = ceiling_pos;
 	}
 	
 	// Update is called once per
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
             dirY = ceiling_pos.y - pos.y;
             dirX = dirY;
             leng = Mathf.Sqrt(dirX * dirX + dirY * dirY) * 0.065f;//画像差し替えたら調節
-            if((wool - leng*20f) > 0){
+            if((wool_count - leng*20f) > 0){
                 ito = Instantiate(itoPrafab) as GameObject;
                 ito.transform.Rotate(0f, 0f, -45.0f);
                 ito.transform.localScale = new Vector3(0.4f, leng, 0f);
@@ -58,26 +58,24 @@ public class PlayerController : MonoBehaviour {
                 joint_ito.connectedBody = rb_ceil;
                 joint_ito.anchor = new Vector3(0, dirY / 2f + 0.8f, 0);//画像差し替えたら調節
                 joint_ito.axis = new Vector3(0, 0, 1);
-                target_pos = transform.position.x + 20.0f;
+
                 //糸の長さによる
                 rb_player.AddForce(leng * 10, -leng * 10, 0, ForceMode.Impulse);
-                wool -= leng * 20;
+                wool_count -= leng * 10;
             }
         }
-
-        if(Input.GetMouseButtonUp(0)){
+        if(Input.GetMouseButtonUp(0) && ito_flag2 == 1){
             Destroy(ito);
             Destroy(joint);
             joint = null;
-            ceiling_pos.x = transform.position.x;
-            ceiling.transform.position = ceiling_pos;
-            target_pos = transform.position.x + 25.0f;
-        }
+            if (Random.Range(0, 100) < p){
+                wool = Instantiate(woolPrefab) as GameObject;
+                wool.transform.position = new Vector3(transform.position.x + 30f, Random.Range(5.0f, 10.0f), 0f);
+            }
 
-        if(pos_camera.x <= target_pos){
-            pos_camera.x += 2.5f;
-            Camera.main.transform.position = pos_camera;
         }
+        pos_camera.x = transform.position.x;
+        Camera.main.transform.position = pos_camera;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -96,7 +94,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.tag == "wool")
         {
-            wool += 20f;
+            wool_count += 20f;
             Destroy(other.gameObject);
         }
     }
