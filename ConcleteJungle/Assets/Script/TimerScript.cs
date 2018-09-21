@@ -9,7 +9,7 @@ public class TimerScript : MonoBehaviour {
 	Text text;
 
 	void Start () {	
-		time = 99;
+		time = 0;
 		text = GetComponent<Text>();
     }
 
