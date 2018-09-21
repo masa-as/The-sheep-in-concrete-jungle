@@ -77,10 +77,14 @@ public class fieldController : MonoBehaviour {
             }
             build[build_counter % 10].transform.position = pos_building[build_counter % 10];
             build_counter++;
+            pos_ground.x += 7.5f;
+            ground.transform.position = pos_ground;
             one = false;
         }
         if(pos_camera != Camera.main.transform.position){
             one = true;
+
+
         }
         pos_camera = Camera.main.transform.position;
 	}
