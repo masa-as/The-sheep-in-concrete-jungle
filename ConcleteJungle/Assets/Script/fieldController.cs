@@ -24,6 +24,8 @@ public class fieldController : MonoBehaviour {
     bool one_goal = true;
 	// Use this for initialization
 	void Start () {
+        Time.timeScale = 1f;
+        PauseScript.ito_flag=1;
         build_counter = 0;
         pos_ground = ground.transform.position;
         pos_player = player.transform.position;
