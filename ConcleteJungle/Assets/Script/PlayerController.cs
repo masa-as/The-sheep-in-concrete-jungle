@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
                 joint_ito.axis = new Vector3(0, 0, 1);
                 target_pos = transform.position.x + 20.0f;
                 //糸の長さによる
-                rb_player.AddForce(leng * 20, -leng * 20, 0, ForceMode.Impulse);
+                rb_player.AddForce(leng * 10, -leng * 10, 0, ForceMode.Impulse);
                 wool -= leng * 20;
             }
         }
