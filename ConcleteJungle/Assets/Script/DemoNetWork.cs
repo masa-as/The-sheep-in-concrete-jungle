@@ -75,11 +75,12 @@ public class DemoNetWork : Photon.PunBehaviour
     private void OnLoadedScene(Scene i_scene, LoadSceneMode i_mode)
     {
         // シーンの遷移が完了したら自分用のオブジェクトを生成.
-        if (i_scene.name == "Multi")
+        if (i_scene.name == "Multi" && start)
         {
             PhotonNetwork.isMessageQueueRunning = true;
             Vector3 spawnPosition = new Vector3(0, 15, 0);
-            PhotonNetwork.Instantiate("hitujiPhoton", spawnPosition, Quaternion.identity, 0); 
+            PhotonNetwork.Instantiate("hitujiPhoton", spawnPosition, Quaternion.identity, 0);
+            start = false;
         }
     }
 }
