@@ -24,8 +24,7 @@ public class SelectController : MonoBehaviour {
     }
     public void MultiButtonDown()
     {
-        Debug.Log("Multi");
-        //SceneManager.LoadScene("Multi");
+        SceneManager.LoadScene("Multi_Select");
     }
     public void LeftScreenDown()
     {
