@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SelectController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public GameObject Multi_Background;
+    public GameObject Solo_Background;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -18,5 +21,14 @@ public class SelectController : MonoBehaviour {
     public void SoloButtonDown()
     {
         SceneManager.LoadScene("Solo");
+    }
+    public void MultiButtonDown()
+    {
+        Debug.Log("Multi");
+        //SceneManager.LoadScene("Multi");
+    }
+    public void LeftScreenDown()
+    {
+        Multi_Background.SetActive(!Multi_Background.activeSelf);
     }
 }

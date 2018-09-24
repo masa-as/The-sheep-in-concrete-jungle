@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
     Slider _slider;
     // Use this for initialization
     void Start () {
+
         ceiling = GameObject.Find("ceiling");
         ceiling_pos = ceiling.transform.position;
         pos_camera = Camera.main.transform.position;
