@@ -258,8 +258,10 @@ GameObject:
   - component: {fileID: 588639632}
   - component: {fileID: 588639631}
   - component: {fileID: 588639633}
+  - component: {fileID: 588639634}
+  - component: {fileID: 588639635}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,6 +334,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d481b6190504d4597974112ee0b92e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &588639634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 588639629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b3c6fc19f8e4071922053444608f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &588639635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 588639629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f576e387cc374ea0bd46f4ca9782035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &849911900
