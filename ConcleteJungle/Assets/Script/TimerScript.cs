@@ -21,8 +21,6 @@ public class TimerScript : MonoBehaviour {
         string secText, msecText;//分・秒を用意.
 
         if (sec < 10)
-            secText = "00" + sec.ToString();
-        else if (sec < 100)
             secText = "0" + sec.ToString();
 		else
 			secText = sec.ToString();
