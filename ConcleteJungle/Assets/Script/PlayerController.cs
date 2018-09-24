@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        wool = 30f;
+        wool = 50f;
         ceiling_pos = ceiling.transform.position;
         pos_camera = Camera.main.transform.position;
         target_pos = pos_camera.x;
