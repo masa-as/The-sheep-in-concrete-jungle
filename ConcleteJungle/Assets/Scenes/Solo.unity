@@ -242,7 +242,6 @@ MonoBehaviour:
   build_b_pre: {fileID: 1684604861381000, guid: 6c33c16d8819a49b7b6fa7c964831771,
     type: 2}
   goal_appear: 100
-  player: {fileID: 1740004991}
   goal: {fileID: 1371137884}
   ceiling: {fileID: 1402106436}
   ground: {fileID: 959274770}
@@ -1123,7 +1122,7 @@ Transform:
   m_LocalScale: {x: 5, y: 60, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &959274770
 GameObject:
@@ -1908,7 +1907,7 @@ MonoBehaviour:
   woolPrefab: {fileID: 1439061635449626, guid: 7c799e18dd2a643af9f2efd6fb0af82e, type: 2}
   itoPrafab: {fileID: 1080843253404638, guid: 8a84805fde5074b9abb31670ae107be1, type: 2}
   wool_count: 100
-  p: 50
+  p: 75
 --- !u!1 &1879080739
 GameObject:
   m_ObjectHideFlags: 0
