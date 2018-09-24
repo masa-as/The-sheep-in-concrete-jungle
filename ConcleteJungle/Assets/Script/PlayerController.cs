@@ -87,7 +87,6 @@ public class PlayerController : MonoBehaviour {
         Camera.main.transform.position = pos_camera;
 
         //ウールバー長さ更新
-        Debug.Log(wool);
         _slider.value = wool_count/100;
 
     }

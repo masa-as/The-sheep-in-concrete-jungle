@@ -14,7 +14,6 @@ public class fieldController : MonoBehaviour {
     public GameObject goal;
     public GameObject ceiling;
     public GameObject ground;
-    public GameObject background;
 
 
     private Vector3 pos_building;
@@ -49,8 +48,6 @@ public class fieldController : MonoBehaviour {
         ground.transform.localScale = new Vector3(length + 50f, 1f, 10.0f);
         ground.transform.position = new Vector3((length + 50f) / 2f, -10f, 0f);
 
-        background.transform.localScale = new Vector3(5f, (length / 1350f) * 60f, 20.0f);
-        background.transform.position = new Vector3(length / 2f, 15f, 0f);
 	}
 	
 }

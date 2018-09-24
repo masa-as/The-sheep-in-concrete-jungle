@@ -157,7 +157,7 @@ MonoBehaviour:
     type: 2}
   build_b_pre: {fileID: 1684604861381000, guid: 6c33c16d8819a49b7b6fa7c964831771,
     type: 2}
-  goal_appear: 100
+  goal_appear: 50
   goal: {fileID: 1371137884}
   ceiling: {fileID: 1402106436}
   ground: {fileID: 959274770}
