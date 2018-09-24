@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{516DEA56-6EB1-953A-5651-77F75F7E69BF}|">
+<Properties StartupConfiguration="{516DEA56-6EB1-953A-5651-77F75F7E69BF}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/NetworkPlayer.cs">
     <Files>
