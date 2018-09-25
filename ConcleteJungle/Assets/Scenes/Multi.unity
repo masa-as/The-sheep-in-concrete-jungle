@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  Hitsuji: {fileID: 0}
+  Camera: {fileID: 0}
   Background: {fileID: 56718360}
 --- !u!212 &56718363
 SpriteRenderer:
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Hitsuji: {fileID: 0}
+  Camera: {fileID: 0}
   Background: {fileID: 233556285}
 --- !u!212 &233556288
 SpriteRenderer:
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 396240338}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25aa8447ccd414f3d98faccf0106bcbd, type: 3}
   m_Name: 
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  Hitsuji: {fileID: 0}
+  Camera: {fileID: 0}
   Background: {fileID: 553342771}
 --- !u!212 &553342774
 SpriteRenderer:
@@ -703,7 +703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &681672818
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -847,7 +847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  Hitsuji: {fileID: 0}
+  Camera: {fileID: 0}
   Background: {fileID: 695035497}
 --- !u!212 &695035500
 SpriteRenderer:
@@ -1262,7 +1262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  Hitsuji: {fileID: 0}
+  Camera: {fileID: 0}
   Background: {fileID: 1400816273}
 --- !u!212 &1400816276
 SpriteRenderer:
@@ -1428,7 +1428,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514678194}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25aa8447ccd414f3d98faccf0106bcbd, type: 3}
   m_Name: 
@@ -1691,7 +1691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Hitsuji: {fileID: 0}
+  Camera: {fileID: 1194679558}
   Background: {fileID: 1549505672}
 --- !u!212 &1549505675
 SpriteRenderer:
@@ -1762,7 +1762,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1550961385}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25aa8447ccd414f3d98faccf0106bcbd, type: 3}
   m_Name: 
@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  Hitsuji: {fileID: 0}
+  Camera: {fileID: 0}
   Background: {fileID: 1648945350}
 --- !u!212 &1648945353
 SpriteRenderer:
@@ -2179,7 +2179,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1840558538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 114.2, y: 0, z: 1}
+  m_LocalPosition: {x: 38.2, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1550961388}
@@ -2197,7 +2197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Hitsuji: {fileID: 0}
+  Camera: {fileID: 0}
   Background: {fileID: 1840558538}
 --- !u!212 &1840558541
 SpriteRenderer:
@@ -2449,7 +2449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  Hitsuji: {fileID: 0}
+  Camera: {fileID: 0}
   Background: {fileID: 2067389743}
 --- !u!212 &2067389746
 SpriteRenderer:
