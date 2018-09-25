@@ -17,12 +17,7 @@ public class fieldController : MonoBehaviour {
     public GameObject goal;
     public GameObject ceiling;
     public GameObject ground;
-<<<<<<< HEAD
-    public GameObject background;
     public GameObject wall;
-=======
-
->>>>>>> 911af72bf727f00ddc8fc8bfa01d1445bcbdea6c
 
     private Vector3 pos_building;
     private Vector3 pos_player;
@@ -71,13 +66,9 @@ public class fieldController : MonoBehaviour {
         ground.transform.localScale = new Vector3(length + 50f, 1f, 10.0f);
         ground.transform.position = new Vector3((length + 50f) / 2f, -10f, 0f);
 
-<<<<<<< HEAD
-        background.transform.localScale = new Vector3(5f, (length / 1350f) * 60f, 20.0f);
-        background.transform.position = new Vector3(length / 2f, 15f, 0f);
 
         wall.transform.position = new Vector3(pos_building.x, 20, 0);
-=======
->>>>>>> 911af72bf727f00ddc8fc8bfa01d1445bcbdea6c
+
 	}
 	
 }
