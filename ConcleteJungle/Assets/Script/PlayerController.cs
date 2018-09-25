@@ -18,14 +18,23 @@ public class PlayerController : MonoBehaviour {
     GameObject ito;
     HingeJoint joint, joint_ito;
     Rigidbody rb_player;
+<<<<<<< HEAD
     GameObject female;
+=======
+    private Animator anim;
+>>>>>>> 911af72bf727f00ddc8fc8bfa01d1445bcbdea6c
 
     public float wool_count;
     public int p; //woolの出現確率
     Slider _slider;
     // Use this for initialization
     void Start () {
+<<<<<<< HEAD
         female = GameObject.Find("female");
+=======
+
+        anim = GetComponent<Animator>();
+>>>>>>> 911af72bf727f00ddc8fc8bfa01d1445bcbdea6c
         ceiling = GameObject.Find("ceiling");
         ceiling_pos = ceiling.transform.position;
         pos_camera = Camera.main.transform.position;
@@ -42,6 +51,7 @@ public class PlayerController : MonoBehaviour {
         int ito_flag2 =PauseScript.GetItoFlag();
         if (Input.GetMouseButtonDown(0) && ito_flag2 == 1)
         {
+            anim.SetBool("Swinging", true);
             pos = transform.position;
             pos_ito = pos;
             dirY = ceiling_pos.y - pos.y;
@@ -75,6 +85,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetMouseButtonUp(0) && ito_flag2 == 1)
         {
+            anim.SetBool("Swinging", false);
             Destroy(ito);
             Destroy(joint);
             joint = null;
@@ -88,7 +99,6 @@ public class PlayerController : MonoBehaviour {
         Camera.main.transform.position = pos_camera;
 
         //ウールバー長さ更新
-        Debug.Log(wool);
         _slider.value = wool_count/100;
 
     }

@@ -157,8 +157,11 @@ MonoBehaviour:
     type: 2}
   build_b_pre: {fileID: 1684604861381000, guid: 6c33c16d8819a49b7b6fa7c964831771,
     type: 2}
+<<<<<<< HEAD
   build_c_pre: {fileID: 0}
   build_d_pre: {fileID: 0}
+=======
+>>>>>>> 911af72bf727f00ddc8fc8bfa01d1445bcbdea6c
   goal_appear: 50
   goal: {fileID: 1371137884}
   ceiling: {fileID: 1402106436}
