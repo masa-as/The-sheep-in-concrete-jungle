@@ -14,10 +14,14 @@ public class wolfController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         pos = transform.position;
-        pos.x = Camera.main.transform.position.x + 10 * sign - dx * sign;
-        transform.localScale = new Vector3(sign, 1, 1);
+
+        if(sign != 0){
+            pos.x = Camera.main.transform.position.x + 10 * sign - dx * sign;      
+            transform.localScale = new Vector3(sign, 1, 1);
+        }
+
         transform.position = pos;
         dx -= 0.1f;
         if(dx <= 0){
@@ -25,4 +29,14 @@ public class wolfController : MonoBehaviour {
             dx = 20f;
         }
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player"){
+            transform.localScale = new Vector3(sign, 1, 1);
+            dx = 0;
+            sign = 0;
+
+        }
+    }
 }

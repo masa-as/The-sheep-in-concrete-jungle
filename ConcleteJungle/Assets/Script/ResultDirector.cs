@@ -22,12 +22,6 @@ public class ResultDirector : MonoBehaviour {
         SceneManager.LoadScene("Solo");
     }
 
-    public void MultiAgainButtonDown()
-    {
-		Debug.Log("Multi");
-        //SceneManager.LoadScene("Multi");
-    }
-
     public void SelectButtonDown()
     {
 		Debug.Log("Select");

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     float target_pos;
     public GameObject ceiling;
     public GameObject woolPrefab;
+    public GameObject bokaPrefab;
     GameObject wool;
     Vector3 ceiling_pos;
     public GameObject itoPrafab;
@@ -19,15 +20,20 @@ public class PlayerController : MonoBehaviour {
     HingeJoint joint, joint_ito;
     Rigidbody rb_player;
     GameObject female;
+    GameObject boka;
     private Animator anim;
     string sceneName;
-
+    int ito_flag2;
     public float wool_count;
     public int p; //woolの出現確率
     Slider _slider;
+
+    bool swing, jump;
     // Use this for initialization
     void Start () {
-
+        swing = false;
+        jump = false;
+        ito_flag2 = 0;
         female = GameObject.Find("female");
         anim = GetComponent<Animator>();
         ceiling = GameObject.Find("ceiling");
@@ -38,14 +44,30 @@ public class PlayerController : MonoBehaviour {
         rb_player.AddForce(30, 0, 0, ForceMode.Impulse);
         // スライダーを取得する
         _slider = GameObject.Find("WoolBar").GetComponent<Slider>();
-
     }
 
     // Update is called once per
     void Update () {
-        int ito_flag2 =PauseScript.GetItoFlag();
+        ito_flag2 = PauseScript.GetItoFlag();
         if (Input.GetMouseButtonDown(0) && ito_flag2 == 1)
         {
+            swing = true;
+        }
+        if (Input.GetMouseButtonUp(0) && ito_flag2 == 1)
+        {
+            jump = true;
+            if (Random.Range(0, 100) < p)
+            {
+                wool = Instantiate(woolPrefab) as GameObject;
+                wool.transform.position = new Vector3(transform.position.x + 30f, Random.Range(5.0f, 10.0f), 0f);
+            } 
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+        if(swing){
             anim.SetBool("Swinging", true);
             pos = transform.position;
             pos_ito = pos;
@@ -79,26 +101,22 @@ public class PlayerController : MonoBehaviour {
                 //糸の長さによる
                 rb_player.AddForce(leng * 10, -leng * 10, 0, ForceMode.Impulse);
                 wool_count -= leng * 7;
+                swing = false;
             }
         }
-        if (Input.GetMouseButtonUp(0) && ito_flag2 == 1)
-        {
+        if(jump){
             anim.SetBool("Swinging", false);
             Destroy(ito);
             Destroy(joint);
             joint = null;
-            if (Random.Range(0, 100) < p)
-            {
-                wool = Instantiate(woolPrefab) as GameObject;
-                wool.transform.position = new Vector3(transform.position.x + 30f, Random.Range(5.0f, 10.0f), 0f);
-            } 
+            jump = false;
+
         }
         pos_camera.x = transform.position.x;
         Camera.main.transform.position = pos_camera;
 
         //ウールバー長さ更新
-        _slider.value = wool_count/100;
-
+        _slider.value = wool_count / 100;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -126,7 +144,9 @@ public class PlayerController : MonoBehaviour {
             Destroy(other.gameObject);
         }
         if(other.gameObject.name == "wolf"){
-            
+            boka = Instantiate(bokaPrefab) as GameObject;
+            pos = transform.position;
+            boka.transform.position = pos;
         }
     }
 
@@ -135,6 +155,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void changeScene(){
+        if (boka.activeSelf)
+        {
+            Destroy(boka);
+        }
         SceneManager.LoadScene(sceneName);
     }
 
