@@ -126,6 +126,9 @@ public class PlayerController : MonoBehaviour {
             wool_count += 20f;
             Destroy(other.gameObject);
         }
+        if(other.gameObject.name == "wolf"){
+            
+        }
     }
 
     private void waitChangeScene(float time){
