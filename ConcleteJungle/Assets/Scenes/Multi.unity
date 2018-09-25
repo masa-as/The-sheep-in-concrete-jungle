@@ -1634,6 +1634,7 @@ MonoBehaviour:
   ceiling: {fileID: 1604258643}
   ground: {fileID: 208570818}
   wall: {fileID: 1616070480}
+  player: {fileID: 0}
   Whiteball: {fileID: 100250326}
 --- !u!4 &1316155469
 Transform:
