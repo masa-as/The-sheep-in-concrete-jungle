@@ -18,7 +18,6 @@ public class fieldController : MonoBehaviour {
     public GameObject ceiling;
     public GameObject ground;
     public GameObject wall;
-    public GameObject player;
     public GameObject Whiteball;
 
     private Vector3 pos_building;
