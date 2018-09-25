@@ -102,8 +102,9 @@ public class PlayerController_Photon : MonoBehaviour {
             pos = transform.position;
             female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
             sceneName = "Lose";
-            waitChangeScene(0.2f);
             one = false;
+            waitChangeScene(0.2f);
+
         }
 
     }
@@ -121,8 +122,9 @@ public class PlayerController_Photon : MonoBehaviour {
                 pos = transform.position;
                 female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
                 sceneName = "Win";
-                waitChangeScene(1.2f);
                 one = false;
+                waitChangeScene(1.2f);
+
 
             }
         }
