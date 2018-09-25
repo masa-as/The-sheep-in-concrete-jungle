@@ -21,9 +21,9 @@ public class PlayerController_Photon : MonoBehaviour {
     Rigidbody rb_player;
     GameObject female;
     GameObject boka;
+    GameObject wolf;
     private Animator anim;
     string sceneName;
-    int ito_flag2;
     public float wool_count;
     public int p; //woolの出現確率
     PhotonView myPhotonView;
@@ -49,13 +49,12 @@ public class PlayerController_Photon : MonoBehaviour {
 	
 	// Update is called once per
     void Update () {
-        ito_flag2 =PauseScript.GetItoFlag();
         if (this.myPhotonView.isMine)
         {
-            if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
+            if (Input.GetMouseButtonDown(0)){
                 swing = true;
             }
-            if(Input.GetMouseButtonUp(0) && ito_flag2 == 1){
+            if(Input.GetMouseButtonUp(0)){
                 jump = true;
                 if (Random.Range(0, 100) < p){
                     wool = Instantiate(woolPrefab) as GameObject;
@@ -140,7 +139,7 @@ public class PlayerController_Photon : MonoBehaviour {
             }
             else{
                 pos = transform.position;
-                female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
+
                 sceneName = "Lose";
                 waitChangeScene(0.2f);
             }
