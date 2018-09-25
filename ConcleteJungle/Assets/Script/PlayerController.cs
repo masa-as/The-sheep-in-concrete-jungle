@@ -27,17 +27,19 @@ public class PlayerController : MonoBehaviour {
     public float wool_count;
     public int p; //woolの出現確率
     Slider _slider;
+    bool swing, jump, boka_exit;
 
-    bool swing, jump;
     // Use this for initialization
     void Start () {
+        Time.timeScale = 1f;
         swing = false;
         jump = false;
+        boka_exit = false;
         ito_flag2 = 0;
         female = GameObject.Find("female");
-        anim = GetComponent<Animator>();
         ceiling = GameObject.Find("ceiling");
         ceiling_pos = ceiling.transform.position;
+        anim = GetComponent<Animator>();
         pos_camera = Camera.main.transform.position;
         target_pos = pos_camera.x;
         rb_player = GetComponent<Rigidbody>();
@@ -62,7 +64,6 @@ public class PlayerController : MonoBehaviour {
                 wool.transform.position = new Vector3(transform.position.x + 30f, Random.Range(5.0f, 10.0f), 0f);
             } 
         }
-
     }
 
     private void FixedUpdate()
@@ -112,7 +113,7 @@ public class PlayerController : MonoBehaviour {
             jump = false;
 
         }
-        pos_camera.x = transform.position.x;
+        pos_camera.x = transform.position.x + 20;
         Camera.main.transform.position = pos_camera;
 
         //ウールバー長さ更新
@@ -143,8 +144,9 @@ public class PlayerController : MonoBehaviour {
             wool_count += 20f;
             Destroy(other.gameObject);
         }
-        if(other.gameObject.name == "wolf"){
+        if(other.gameObject.name == "wolf" && !Input.GetMouseButtonDown(0)){
             boka = Instantiate(bokaPrefab) as GameObject;
+            boka_exit = true;
             pos = transform.position;
             boka.transform.position = pos;
         }
@@ -155,9 +157,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void changeScene(){
-        if (boka.activeSelf)
+        if (boka_exit)
         {
             Destroy(boka);
+            boka_exit = false;
         }
         SceneManager.LoadScene(sceneName);
     }

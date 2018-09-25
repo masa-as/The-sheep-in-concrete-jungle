@@ -12,24 +12,27 @@ public class PlayerController_Photon : MonoBehaviour {
     float target_pos;
     public GameObject ceiling;
     public GameObject woolPrefab;
+    public GameObject bokaPrefab;
     GameObject wool;
     Vector3 ceiling_pos;
     public GameObject itoPrafab;
     GameObject ito;
     HingeJoint joint, joint_ito;
     Rigidbody rb_player;
+    GameObject female;
+    GameObject boka;
+    private Animator anim;
+    string sceneName;
+    int ito_flag2;
     public float wool_count;
     public int p; //woolの出現確率
     PhotonView myPhotonView;
     Slider _slider;
-    GameObject female;
-    string sceneName;
-    bool achieve, swing, jump;
+    bool swing, jump, boka_exit;
 
 
 	// Use this for initialization
 	void Start () {
-        achieve = false;
         swing = false;
         jump = false;
         this.myPhotonView = GetComponent<PhotonView>();
@@ -37,6 +40,7 @@ public class PlayerController_Photon : MonoBehaviour {
         ceiling = GameObject.Find("ceiling");
         female = GameObject.Find("female");
         ceiling_pos = ceiling.transform.position;
+        anim = GetComponent<Animator>();
         pos_camera = Camera.main.transform.position;
         target_pos = pos_camera.x;
         rb_player = GetComponent<Rigidbody>();
@@ -45,7 +49,7 @@ public class PlayerController_Photon : MonoBehaviour {
 	
 	// Update is called once per
     void Update () {
-        int ito_flag2 =PauseScript.GetItoFlag();
+        ito_flag2 =PauseScript.GetItoFlag();
         if (this.myPhotonView.isMine)
         {
             if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
@@ -64,8 +68,8 @@ public class PlayerController_Photon : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        pos = transform.position;
         if(swing){
-            pos = transform.position;
             pos_ito = pos;
             dirY = ceiling_pos.y - pos.y;
             dirX = dirY;
@@ -98,12 +102,13 @@ public class PlayerController_Photon : MonoBehaviour {
             }
         }
         if(jump){
+            anim.SetBool("Swinging", false);
             Destroy(ito);
             Destroy(joint);
             joint = null;
             jump = false;
         }
-        pos_camera.x = transform.position.x+20;
+        pos_camera.x = transform.position.x + 20;
         Camera.main.transform.position = pos_camera;
         _slider.value = wool_count / 100;
     }
@@ -145,8 +150,14 @@ public class PlayerController_Photon : MonoBehaviour {
                 wool_count += 20f;
                 Destroy(other.gameObject);
             }
+            if (other.gameObject.name == "wolf" && !Input.GetMouseButtonDown(0))
+            {
+                boka = Instantiate(bokaPrefab) as GameObject;
+                boka_exit = true;
+                pos = transform.position;
+                boka.transform.position = pos;
+            }
         }
-
     }
 
     private void waitChangeScene(float time)
