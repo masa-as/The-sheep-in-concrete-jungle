@@ -39,4 +39,13 @@ public class wolfController : MonoBehaviour {
 
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            dx = 20f;
+            sign = 1;
+
+        }
+    }
 }

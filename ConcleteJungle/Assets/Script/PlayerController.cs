@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
         female = GameObject.Find("female");
         ceiling = GameObject.Find("ceiling");
         ceiling_pos = ceiling.transform.position;
+        anim = GetComponent<Animator>();
         pos_camera = Camera.main.transform.position;
         target_pos = pos_camera.x;
         rb_player = GetComponent<Rigidbody>();
@@ -143,7 +144,7 @@ public class PlayerController : MonoBehaviour {
             wool_count += 20f;
             Destroy(other.gameObject);
         }
-        if(other.gameObject.name == "wolf"){
+        if(other.gameObject.name == "wolf" && !Input.GetMouseButtonDown(0)){
             boka = Instantiate(bokaPrefab) as GameObject;
             boka_exit = true;
             pos = transform.position;
