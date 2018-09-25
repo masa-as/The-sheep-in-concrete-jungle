@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour {
             Destroy(ito);
             Destroy(joint);
             joint = null;
+            rb_player.AddForce(10f, 0, 0, ForceMode.Impulse);
             jump = false;
 
         }

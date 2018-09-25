@@ -53,14 +53,21 @@ public class PlayerController_Photon : MonoBehaviour {
 	
 	// Update is called once per
     void Update () {
+<<<<<<< HEAD
+        ito_flag2 =PauseScript.GetItoFlag();
+
         Mask.transform.position += Vector3.up * speed;
         if (Mask.transform.position.y >= 371){
             speed = 0;
         }
 
+        if (this.myPhotonView.isMine){
+            if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
+=======
         if (this.myPhotonView.isMine)
         {
             if (Input.GetMouseButtonDown(0)){
+>>>>>>> 5158db4ccbc2f6ea1ee5b8240cfe897f438fc4f3
                 swing = true;
             }
             if(Input.GetMouseButtonUp(0)){
