@@ -118,7 +118,7 @@ public class PlayerController_Photon : MonoBehaviour {
     {
         
         if (this.myPhotonView.isMine){
-            if (collision.gameObject.name == "ground" && collision.gameObject.name == "wolf")
+            if (collision.gameObject.name == "ground" || collision.gameObject.name == "wolf")
             {
                 Invoke("restart", 1.0f);
             }
