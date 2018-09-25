@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour {
         {
             pos = transform.position;
             female.transform.position = new Vector3(pos.x+10, 0.5f, 0);
-            sceneName = "result";
+            sceneName = "Result";
             waitChangeScene(1.2f);
             //SceneManager.LoadScene("result");
         }
