@@ -12,8 +12,5 @@ public class Maskmove : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.up * speed;
-        if(transform.position.y >= 371){
-            speed = 0;
-        }
     }
 }
