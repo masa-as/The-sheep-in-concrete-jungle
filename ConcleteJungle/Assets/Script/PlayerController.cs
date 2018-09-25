@@ -105,9 +105,8 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.gameObject.name == "ground")
         {
-            sceneName = "result";
-            waitChangeScene(0.2f);
-            //SceneManager.LoadScene("result");
+            sceneName = "Lose";
+            waitChangeScene(1.0f);
         }
         if (collision.gameObject.name == "Goal")
         {
