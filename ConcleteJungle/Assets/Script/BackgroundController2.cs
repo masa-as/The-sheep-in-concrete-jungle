@@ -6,7 +6,6 @@ public class BackgroundController2 : MonoBehaviour
 
     public float speed;
     //public int spriteCount = 2;
-    public GameObject Camera;
     public GameObject Background;
 
 
@@ -14,7 +13,7 @@ public class BackgroundController2 : MonoBehaviour
     {
         // 左へ移動
         transform.position += Vector3.left * speed * Time.deltaTime;
-        if (transform.position.x < Camera.transform.position.x - 58f)
+        if (transform.position.x < Camera.main.transform.position.x - 58f)
         {
             Vector3 tmp = Background.transform.position;
             tmp.x += 114;

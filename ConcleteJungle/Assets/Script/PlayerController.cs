@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour {
             if ((wool_count - leng * 20f) > 0)
             {
                 ito = Instantiate(itoPrafab) as GameObject;
+                float z = ito.transform.eulerAngles.z;
+                this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, z);
+
                 ito.transform.Rotate(0f, 0f, -45.0f);
                 ito.transform.localScale = new Vector3(0.4f, leng, 0f);
                 pos_ito.x += dirX / 2.0f + 1.4f;//画像差し替えたら調節

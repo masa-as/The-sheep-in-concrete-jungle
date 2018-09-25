@@ -282,7 +282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Camera: {fileID: 653978684}
   Background: {fileID: 47866365}
 --- !u!1 &60888986
 GameObject:
@@ -410,7 +409,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  Camera: {fileID: 653978684}
   Background: {fileID: 148397663}
 --- !u!212 &148397666
 SpriteRenderer:
@@ -929,7 +927,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Camera: {fileID: 653978684}
   Background: {fileID: 591623862}
 --- !u!212 &591623865
 SpriteRenderer:
@@ -1065,7 +1062,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  Camera: {fileID: 653978684}
   Background: {fileID: 600156158}
 --- !u!1 &636534341
 GameObject:
@@ -1533,7 +1529,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  Camera: {fileID: 653978684}
   Background: {fileID: 726308137}
 --- !u!212 &726308140
 SpriteRenderer:
@@ -2166,7 +2161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Camera: {fileID: 653978684}
   Background: {fileID: 1098937703}
 --- !u!212 &1098937706
 SpriteRenderer:
@@ -2302,7 +2296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  Camera: {fileID: 653978684}
   Background: {fileID: 1226847006}
 --- !u!1 &1257462119
 GameObject:
@@ -2739,7 +2732,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  Camera: {fileID: 653978684}
   Background: {fileID: 1413476275}
 --- !u!212 &1413476278
 SpriteRenderer:
@@ -2996,7 +2988,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  Camera: {fileID: 653978684}
   Background: {fileID: 1630149817}
 --- !u!212 &1630149820
 SpriteRenderer:
@@ -3090,7 +3081,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!212 &1740004994
 SpriteRenderer:
