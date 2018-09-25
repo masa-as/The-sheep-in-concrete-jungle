@@ -31,14 +31,15 @@ public class PlayerController_Photon : MonoBehaviour {
     public int p; //woolの出現確率
     PhotonView myPhotonView;
     Slider _slider;
-    bool swing, jump, boka_exit;
-
+    bool swing, jump, boka_exit, mask_flag;
+    
 
 	// Use this for initialization
 	void Start () {
         Mask = GameObject.Find("Canvas/mask");
         swing = false;
         jump = false;
+        mask_flag = false;
         this.myPhotonView = GetComponent<PhotonView>();
         _slider = GameObject.Find("WoolBar").GetComponent<Slider>();
         ceiling = GameObject.Find("ceiling");
@@ -53,11 +54,6 @@ public class PlayerController_Photon : MonoBehaviour {
 	
 	// Update is called once per
     void Update () {
-        Mask.transform.position += Vector3.up * speed;
-        if (Mask.transform.position.y >= 371){
-            speed = 0;
-        }
-
         if (this.myPhotonView.isMine)
         {
             if (Input.GetMouseButtonDown(0)){
@@ -76,7 +72,16 @@ public class PlayerController_Photon : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if(this.myPhotonView.isMine){
+        if (mask_flag == true)
+        {
+            Mask.transform.position += Vector3.up * speed;
+            if (Mask.transform.position.y >= 371)
+            {
+                speed = 0;
+            }
+        }
+
+        if (this.myPhotonView.isMine){
             pos = transform.position;
             if (swing)
             {
@@ -141,7 +146,7 @@ public class PlayerController_Photon : MonoBehaviour {
         if (collision.gameObject.name == "Goal")
         {
             if(this.myPhotonView.isMine){
-
+                mask_flag = true;
                 pos = transform.position;
                 female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
                 sceneName = "Win";
