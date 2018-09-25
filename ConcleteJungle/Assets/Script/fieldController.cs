@@ -18,6 +18,8 @@ public class fieldController : MonoBehaviour {
     public GameObject ceiling;
     public GameObject ground;
     public GameObject wall;
+    public GameObject player;
+    public GameObject Whiteball;
 
     private Vector3 pos_building;
     private Vector3 pos_player;
@@ -70,5 +72,12 @@ public class fieldController : MonoBehaviour {
         wall.transform.position = new Vector3(pos_building.x, 20, 0);
 
 	}
-	
+    void Update()
+    {
+        Vector3 tmp = Camera.main.transform.position;
+        tmp.x = tmp.x * (float)517 / (float)1470 + 281;
+        Whiteball.transform.position = new Vector3(tmp.x, 665, 0);
+    }
+
+
 }
