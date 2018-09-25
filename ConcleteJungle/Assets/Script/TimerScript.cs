@@ -32,7 +32,7 @@ public class TimerScript : MonoBehaviour {
 			msecText = msec.ToString ();
 		
 
-		text.text = "[Time] " + secText + "." + msecText ;
+		text.text = secText + "\"" + msecText ;
 
 		//Debug.Log (time);
 	}
