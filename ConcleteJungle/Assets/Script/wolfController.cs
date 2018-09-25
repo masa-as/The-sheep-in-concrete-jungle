@@ -18,7 +18,7 @@ public class wolfController : MonoBehaviour {
         pos = transform.position;
 
         if(sign != 0){
-            pos.x = Camera.main.transform.position.x + 10 * sign - dx * sign;      
+            pos.x = Camera.main.transform.position.x - 20 + 10 * sign - dx * sign;      
             transform.localScale = new Vector3(sign, 1, 1);
         }
 
