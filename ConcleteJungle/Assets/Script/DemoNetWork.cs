@@ -12,6 +12,7 @@ public class DemoNetWork : Photon.PunBehaviour
     bool start = false;
     string GroupName = null;
     public InputField GetInput;
+    public int Id;
     // Use this for initialization
     void Start()
     {
@@ -27,11 +28,13 @@ public class DemoNetWork : Photon.PunBehaviour
         if (GroupName.Equals(""))
         {
             Debug.Log("unko");
+            Id = 2;
             PhotonNetwork.JoinRandomRoom();
         }
         else
         {
             PhotonNetwork.JoinRoom(GroupName);
+            Id = 2;
             GetInput.text = null;
         }
     }
@@ -45,12 +48,14 @@ public class DemoNetWork : Photon.PunBehaviour
     {
         GroupName = Guid.NewGuid().ToString("N").Substring(0, 12);
         PhotonNetwork.CreateRoom(GroupName, new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 }, null);
+        Id = 1;
     }
 
     public override void OnPhotonJoinRoomFailed(object[] codeAndMsg)
     {
         
         PhotonNetwork.CreateRoom(GroupName, new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 }, null);
+        Id = 1;
     }
 
     public override void OnJoinedRoom()
@@ -79,8 +84,23 @@ public class DemoNetWork : Photon.PunBehaviour
         {
             PhotonNetwork.isMessageQueueRunning = true;
             Vector3 spawnPosition = new Vector3(0, 15, 0);
-            PhotonNetwork.Instantiate("hitujiPhoton", spawnPosition, Quaternion.identity, 0);
+            if(Id == 1){
+                PhotonNetwork.Instantiate("hitujiPhoton1", spawnPosition, Quaternion.identity, 0);
+            }
+            if (Id == 2)
+            {
+                PhotonNetwork.Instantiate("hitujiPhoton2", spawnPosition, Quaternion.identity, 0);
+            }
             start = false;
         }
+    }
+
+    public override void OnLeftRoom()
+    {
+        Button.SetActive(!Button.activeSelf);
+        GetInput.text = null;
+        SceneManager.sceneLoaded += OnLoadedScene;
+        PhotonNetwork.ConnectUsingSettings("0.1");
+        PhotonNetwork.logLevel = PhotonLogLevel.Full;
     }
 }

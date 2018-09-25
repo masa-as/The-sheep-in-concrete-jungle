@@ -6,6 +6,9 @@ public class fieldController : MonoBehaviour {
 
     public GameObject build_a_pre;
     public GameObject build_b_pre;
+    public GameObject build_c_pre;
+    public GameObject build_d_pre;
+    public GameObject build_e_pre;
 
     public int goal_appear;
 
@@ -15,7 +18,7 @@ public class fieldController : MonoBehaviour {
     public GameObject ceiling;
     public GameObject ground;
     public GameObject background;
-
+    public GameObject wall;
 
     private Vector3 pos_building;
     private Vector3 pos_player;
@@ -28,19 +31,34 @@ public class fieldController : MonoBehaviour {
         PauseScript.ito_flag=1;
         build_counter = 0;
         for (int i = 0; i < goal_appear; i++){
-            int v = Random.Range(0, 2);
+            int v = Random.Range(0, 5);
             if(v == 0){
                 build = Instantiate(build_a_pre) as GameObject;
-                pos_building = new Vector3(build_counter * 27f, 3f, 0f);//本素材にした時に調節
+                pos_building = new Vector3(build_counter * 30f, 5f, 0f);//本素材にした時に調節
             }
             else if(v == 1){
                 build = Instantiate(build_b_pre) as GameObject;
-                pos_building = new Vector3(build_counter * 27f, 5f, 0f);//本素材にした時に調節
+                pos_building = new Vector3(build_counter * 30f, 3f, 0f);//本素材にした時に調節
+            }
+            else if (v == 2)
+            {
+                build = Instantiate(build_c_pre) as GameObject;
+                pos_building = new Vector3(build_counter * 30f, 4.3f, 0f);//本素材にした時に調節
+            }
+            else if (v == 3)
+            {
+                build = Instantiate(build_d_pre) as GameObject;
+                pos_building = new Vector3(build_counter * 30f, 5.5f, 0f);//本素材にした時に調節
+            }
+            else if (v == 4)
+            {
+                build = Instantiate(build_e_pre) as GameObject;
+                pos_building = new Vector3(build_counter * 30f, -4.5f, 0f);//本素材にした時に調節
             }
             build.transform.position = pos_building;
             build_counter++;
         }
-        pos_building = new Vector3(build_counter * 27f, -5f, 0f);
+        pos_building = new Vector3(build_counter * 30f, -5f, 0f);
         goal.transform.position = pos_building;
         length = pos_building.x;
         ceiling.transform.localScale = new Vector3(length+50f, 1f, 20.0f);
@@ -51,6 +69,8 @@ public class fieldController : MonoBehaviour {
 
         background.transform.localScale = new Vector3(5f, (length / 1350f) * 60f, 20.0f);
         background.transform.position = new Vector3(length / 2f, 15f, 0f);
+
+        wall.transform.position = new Vector3(pos_building.x, 20, 0);
 	}
 	
 }
