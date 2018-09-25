@@ -9,7 +9,6 @@ public class TitleController : MonoBehaviour
     public GameObject StartButton;
     public GameObject StartButton_push;
 
-
     // Use this for initialization
     void Start()
     {
@@ -24,9 +23,11 @@ public class TitleController : MonoBehaviour
 
     public void StartButtonDown()
     {
+        GetComponent<AudioSource>().Play();
+
         StartButton.SetActive(!StartButton.activeSelf);
         StartButton_push.SetActive(!StartButton_push.activeSelf);
-        SceneManager.LoadScene("Select");
+        //SceneManager.LoadScene("Select");
     }
 
 }

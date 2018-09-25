@@ -103,7 +103,7 @@ public class PlayerController_Photon : MonoBehaviour {
             joint = null;
             jump = false;
         }
-        pos_camera.x = transform.position.x;
+        pos_camera.x = transform.position.x+20;
         Camera.main.transform.position = pos_camera;
         _slider.value = wool_count / 100;
     }
