@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114207575620730998}
   - component: {fileID: 114308458317717406}
   - component: {fileID: 114335084248174416}
+  - component: {fileID: 95003584285294462}
   m_Layer: 0
   m_Name: hitujiPhoton2
   m_TagString: Player
@@ -62,6 +63,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &95003584285294462
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081762496699798}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c23018b92ff54401b962cd35617f794, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114077865612035664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,8 +104,8 @@ MonoBehaviour:
   - {fileID: 114335084248174416}
   - {fileID: 114308458317717406}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 1
+  instantiationId: 1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114207575620730998
@@ -203,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ceiling: {fileID: 0}
   woolPrefab: {fileID: 1439061635449626, guid: 7c799e18dd2a643af9f2efd6fb0af82e, type: 2}
+  bokaPrefab: {fileID: 0}
   itoPrafab: {fileID: 1080843253404638, guid: 8a84805fde5074b9abb31670ae107be1, type: 2}
   wool_count: 100
   p: 50
