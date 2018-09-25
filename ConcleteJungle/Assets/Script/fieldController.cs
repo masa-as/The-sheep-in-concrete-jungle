@@ -37,7 +37,7 @@ public class fieldController : MonoBehaviour {
             }
             else if(v == 1){
                 build = Instantiate(build_b_pre) as GameObject;
-                pos_building = new Vector3(build_counter * 30f, 3f, 0f);//本素材にした時に調節
+                pos_building = new Vector3(build_counter * 30f, 5f, 0f);//本素材にした時に調節
             }
             else if (v == 2)
             {
