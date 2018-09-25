@@ -831,7 +831,7 @@ Transform:
   m_GameObject: {fileID: 451660273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -55.7, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1629,12 +1629,11 @@ MonoBehaviour:
     type: 2}
   build_e_pre: {fileID: 1419439149939756, guid: 22587b65923024823986147ea6073022,
     type: 2}
-  goal_appear: 10
+  goal_appear: 50
   goal: {fileID: 451660273}
   ceiling: {fileID: 1604258643}
   ground: {fileID: 208570818}
   wall: {fileID: 1616070480}
-  player: {fileID: 0}
   Whiteball: {fileID: 100250326}
 --- !u!4 &1316155469
 Transform:
@@ -2511,7 +2510,7 @@ Transform:
   m_GameObject: {fileID: 1616070480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -42.14, y: 19, z: 0}
-  m_LocalScale: {x: 1, y: 30, z: 10}
+  m_LocalScale: {x: 1, y: 50, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8

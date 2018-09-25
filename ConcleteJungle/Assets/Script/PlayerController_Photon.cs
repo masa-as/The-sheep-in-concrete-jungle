@@ -109,6 +109,7 @@ public class PlayerController_Photon : MonoBehaviour {
                 Destroy(ito);
                 Destroy(joint);
                 joint = null;
+                rb_player.AddForce(10f, 0, 0, ForceMode.Impulse);
                 jump = false;
             }
             pos_camera.x = transform.position.x + 20;

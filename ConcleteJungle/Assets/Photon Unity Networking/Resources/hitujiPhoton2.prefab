@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ceiling: {fileID: 0}
   woolPrefab: {fileID: 1439061635449626, guid: 7c799e18dd2a643af9f2efd6fb0af82e, type: 2}
-  bokaPrefab: {fileID: 0}
+  bokaPrefab: {fileID: 1919112097401924, guid: e3f810bba05fb48f6918cb13be9a6ee1, type: 2}
   itoPrafab: {fileID: 1080843253404638, guid: 8a84805fde5074b9abb31670ae107be1, type: 2}
   wool_count: 100
   p: 50
