@@ -83,7 +83,7 @@ public class DemoNetWork : Photon.PunBehaviour
         if (i_scene.name == "Multi" && start)
         {
             PhotonNetwork.isMessageQueueRunning = true;
-            Vector3 spawnPosition = new Vector3(0, 15, 0);
+            Vector3 spawnPosition = new Vector3(0, 15-(Id-1)*5, 0);
             if(Id == 1){
                 PhotonNetwork.Instantiate("hitujiPhoton1", spawnPosition, Quaternion.identity, 0);
             }
