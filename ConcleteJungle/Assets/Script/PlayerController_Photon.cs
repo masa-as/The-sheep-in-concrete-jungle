@@ -27,11 +27,13 @@ public class PlayerController_Photon : MonoBehaviour {
     bool achieve;
     GameObject goal;
     Judge goal_script;
+    bool one;
 
 
 	// Use this for initialization
 	void Start () {
         achieve = false;
+        one = true;
         goal = GameObject.Find("Goal");
         goal_script = goal.GetComponent<Judge>();
         this.myPhotonView = GetComponent<PhotonView>();
@@ -96,11 +98,12 @@ public class PlayerController_Photon : MonoBehaviour {
             Camera.main.transform.position = pos_camera;
             _slider.value = wool_count / 100;
         }
-        else if(goal_script.judge){
+        else if(goal_script.judge && one){
             pos = transform.position;
             female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
             sceneName = "Lose";
             waitChangeScene(0.2f);
+            one = false;
         }
 
     }
@@ -113,12 +116,14 @@ public class PlayerController_Photon : MonoBehaviour {
             {
                 Invoke("restart", 1.0f);
             }
-            if (collision.gameObject.name == "Goal")
+            if (collision.gameObject.name == "Goal" && one)
             {
                 pos = transform.position;
                 female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
                 sceneName = "Win";
                 waitChangeScene(1.2f);
+                one = false;
+
             }
         }
     }
