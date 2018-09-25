@@ -25,17 +25,11 @@ public class PlayerController_Photon : MonoBehaviour {
     GameObject female;
     string sceneName;
     bool achieve;
-    GameObject goal;
-    Judge goal_script;
-    bool one;
 
 
 	// Use this for initialization
 	void Start () {
         achieve = false;
-        one = true;
-        goal = GameObject.Find("Goal");
-        goal_script = goal.GetComponent<Judge>();
         this.myPhotonView = GetComponent<PhotonView>();
         _slider = GameObject.Find("WoolBar").GetComponent<Slider>();
         ceiling = GameObject.Find("ceiling");
@@ -98,36 +92,35 @@ public class PlayerController_Photon : MonoBehaviour {
             Camera.main.transform.position = pos_camera;
             _slider.value = wool_count / 100;
         }
-        else if(goal_script.judge && one){
-            pos = transform.position;
-            female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
-            sceneName = "Lose";
-            one = false;
-            waitChangeScene(0.2f);
-
-        }
-
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
-        if (this.myPhotonView.isMine){
+
+        if (this.myPhotonView.isMine)
+        {
             if (collision.gameObject.name == "ground")
             {
                 Invoke("restart", 1.0f);
             }
-            if (collision.gameObject.name == "Goal" && one)
-            {
+        }
+
+        if (collision.gameObject.name == "Goal")
+        {
+            if(this.myPhotonView.isMine){
                 pos = transform.position;
                 female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
                 sceneName = "Win";
-                one = false;
                 waitChangeScene(1.2f);
-
-
+            }
+            else{
+                pos = transform.position;
+                female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
+                sceneName = "Lose";
+                waitChangeScene(0.2f);
             }
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
