@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "ground" || collision.gameObject.name == "wolf")
+        if (collision.gameObject.name == "ground")
         {
             sceneName = "result";
             waitChangeScene(0.2f);

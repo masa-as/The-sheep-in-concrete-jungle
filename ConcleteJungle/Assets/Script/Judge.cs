@@ -9,9 +9,10 @@ public class Judge : MonoBehaviour {
     {
         judge = false;
     }
-    public void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        if(collision.gameObject.tag == "Player"){
+        if (collision.gameObject.tag == "Player")
+        {
             judge = true;
         }
     }
