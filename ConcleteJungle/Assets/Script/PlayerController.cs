@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
     Rigidbody rb_player;
     GameObject female;
     private Animator anim;
-    femaleController script_female;
+    string sceneName;
 
     public float wool_count;
     public int p; //woolの出現確率
@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour {
     void Start () {
 
         female = GameObject.Find("female");
-        script_female = female.GetComponent<femaleController>();
         anim = GetComponent<Animator>();
         ceiling = GameObject.Find("ceiling");
         ceiling_pos = ceiling.transform.position;
@@ -103,13 +102,16 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.gameObject.name == "ground" || collision.gameObject.name == "wolf")
         {
-            SceneManager.LoadScene("result");
+            sceneName = "result";
+            waitChangeScene(0.2f);
+            //SceneManager.LoadScene("result");
         }
         if (collision.gameObject.name == "Goal")
         {
             pos = transform.position;
             female.transform.position = new Vector3(pos.x+10, 0.5f, 0);
-            script_female.Win("");
+            sceneName = "result";
+            waitChangeScene(1.2f);
             //SceneManager.LoadScene("result");
         }
     }
@@ -121,6 +123,14 @@ public class PlayerController : MonoBehaviour {
             wool_count += 20f;
             Destroy(other.gameObject);
         }
+    }
+
+    private void waitChangeScene(float time){
+        Invoke("changeScene", time);
+    }
+
+    private void changeScene(){
+        SceneManager.LoadScene(sceneName);
     }
 
 }
