@@ -13,6 +13,9 @@ public class PlayerController_Photon : MonoBehaviour {
     public GameObject ceiling;
     public GameObject woolPrefab;
     public GameObject bokaPrefab;
+    public float speed = 10;
+    public GameObject Mask;
+
     GameObject wool;
     Vector3 ceiling_pos;
     public GameObject itoPrafab;
@@ -33,6 +36,7 @@ public class PlayerController_Photon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Mask = GameObject.Find("Canvas/mask");
         swing = false;
         jump = false;
         this.myPhotonView = GetComponent<PhotonView>();
@@ -50,8 +54,13 @@ public class PlayerController_Photon : MonoBehaviour {
 	// Update is called once per
     void Update () {
         ito_flag2 =PauseScript.GetItoFlag();
-        if (this.myPhotonView.isMine)
-        {
+
+        Mask.transform.position += Vector3.up * speed;
+        if (Mask.transform.position.y >= 371){
+            speed = 0;
+        }
+
+        if (this.myPhotonView.isMine){
             if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
                 swing = true;
             }
@@ -132,6 +141,7 @@ public class PlayerController_Photon : MonoBehaviour {
         if (collision.gameObject.name == "Goal")
         {
             if(this.myPhotonView.isMine){
+
                 pos = transform.position;
                 female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
                 sceneName = "Win";

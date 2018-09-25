@@ -1,16 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class Fadetest : MonoBehaviour
+{
+    float alfa;
+    float speed = 0.01f;
+    float red, green, blue;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+        red = GetComponent<Image>().color.r;
+        green = GetComponent<Image>().color.g;
+        blue = GetComponent<Image>().color.b;
+        alfa = 1;
+    }
+
+    void Update()
+    {
+        GetComponent<Image>().color = new Color(red, green, blue, alfa);
+        alfa -= speed;
+    }
 }
