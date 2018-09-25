@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  Camera: {fileID: 0}
   Background: {fileID: 56718360}
 --- !u!212 &56718363
 SpriteRenderer:
@@ -378,7 +377,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Camera: {fileID: 0}
   Background: {fileID: 233556285}
 --- !u!212 &233556288
 SpriteRenderer:
@@ -517,6 +515,7 @@ GameObject:
   - component: {fileID: 451660276}
   - component: {fileID: 451660275}
   - component: {fileID: 451660274}
+  - component: {fileID: 451660277}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -595,6 +594,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451660277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451660273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680c64b3c9d1e404a95d6c14a180af28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judge: 0
 --- !u!1 &553342771
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  Camera: {fileID: 0}
   Background: {fileID: 553342771}
 --- !u!212 &553342774
 SpriteRenderer:
@@ -703,7 +713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &681672818
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -847,7 +857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  Camera: {fileID: 0}
   Background: {fileID: 695035497}
 --- !u!212 &695035500
 SpriteRenderer:
@@ -1127,7 +1136,7 @@ MonoBehaviour:
     type: 2}
   build_e_pre: {fileID: 1419439149939756, guid: 22587b65923024823986147ea6073022,
     type: 2}
-  goal_appear: 50
+  goal_appear: 10
   goal: {fileID: 451660273}
   ceiling: {fileID: 1604258643}
   ground: {fileID: 208570818}
@@ -1262,7 +1271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  Camera: {fileID: 0}
   Background: {fileID: 1400816273}
 --- !u!212 &1400816276
 SpriteRenderer:
@@ -1414,7 +1422,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1514678197}
   - component: {fileID: 1514678196}
-  - component: {fileID: 1514678195}
   m_Layer: 0
   m_Name: Backgrounds (3)
   m_TagString: Untagged
@@ -1422,19 +1429,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1514678195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1514678194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25aa8447ccd414f3d98faccf0106bcbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hitsuji: {fileID: 0}
-  Background: {fileID: 1514678194}
 --- !u!23 &1514678196
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1691,7 +1685,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Camera: {fileID: 1194679558}
   Background: {fileID: 1549505672}
 --- !u!212 &1549505675
 SpriteRenderer:
@@ -1976,7 +1969,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  Camera: {fileID: 0}
   Background: {fileID: 1648945350}
 --- !u!212 &1648945353
 SpriteRenderer:
@@ -2197,7 +2189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Camera: {fileID: 0}
   Background: {fileID: 1840558538}
 --- !u!212 &1840558541
 SpriteRenderer:
@@ -2449,7 +2440,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  Camera: {fileID: 0}
   Background: {fileID: 2067389743}
 --- !u!212 &2067389746
 SpriteRenderer:

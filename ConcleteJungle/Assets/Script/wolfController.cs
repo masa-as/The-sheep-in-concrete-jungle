@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class wolfController : MonoBehaviour {
 
-    private GameObject player;
     private Vector3 pos;
     private int sign;
     private float dx;
@@ -12,13 +11,12 @@ public class wolfController : MonoBehaviour {
 	void Start () {
         dx = 20f;
         sign = 1;
-        player = GameObject.Find("hituji");
-        pos = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        pos.x = player.transform.position.x + 10 * sign - dx * sign;
+        pos = transform.position;
+        pos.x = Camera.main.transform.position.x + 10 * sign - dx * sign;
         transform.localScale = new Vector3(sign, 1, 1);
         transform.position = pos;
         dx -= 0.1f;

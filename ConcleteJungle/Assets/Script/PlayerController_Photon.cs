@@ -23,9 +23,19 @@ public class PlayerController_Photon : MonoBehaviour {
     PhotonView myPhotonView;
     Slider _slider;
     GameObject female;
+    string sceneName;
+    bool achieve;
+    bool myachieve;
+    GameObject goal;
+    Judge goal_script;
+
 
 	// Use this for initialization
 	void Start () {
+        achieve = false;
+        myachieve = false;
+        goal = GameObject.Find("Goal");
+        goal_script = goal.GetComponent<Judge>();
         this.myPhotonView = GetComponent<PhotonView>();
         _slider = GameObject.Find("WoolBar").GetComponent<Slider>();
         ceiling = GameObject.Find("ceiling");
@@ -88,22 +98,33 @@ public class PlayerController_Photon : MonoBehaviour {
             Camera.main.transform.position = pos_camera;
             _slider.value = wool_count / 100;
         }
+
+        if(goal_script.judge && myachieve){
+            pos = transform.position;
+            female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
+            sceneName = "Win";
+            waitChangeScene(1.2f);
+        }
+        else if(goal_script.judge){
+            pos = transform.position;
+            female.transform.position = new Vector3(pos.x + 10, 0.5f, 0);
+            sceneName = "Lose";
+            waitChangeScene(0.2f);
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         
         if (this.myPhotonView.isMine){
-            if (collision.gameObject.name == "ground")
+            if (collision.gameObject.name == "ground" && collision.gameObject.name == "wolf")
             {
-                wool_count = 50;
-                pos.y = 15f;
-                transform.position = pos;
-                //SceneManager.LoadScene("Lose");
+                Invoke("restart", 1.0f);
             }
             if (collision.gameObject.name == "Goal")
             {
-                SceneManager.LoadScene("Win");
+                myachieve = true;
             }
         }
     }
@@ -120,4 +141,25 @@ public class PlayerController_Photon : MonoBehaviour {
 
     }
 
+    private void waitChangeScene(float time)
+    {
+        Invoke("changeScene", time);
+    }
+
+    private void changeScene()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private void restart(){
+        if (Input.GetMouseButtonDown(0))
+        {
+            Destroy(ito);
+            Destroy(joint);
+            joint = null;
+        }
+        wool_count = 50;
+        pos.y = 15f;
+        transform.position = pos;
+    }
 }
