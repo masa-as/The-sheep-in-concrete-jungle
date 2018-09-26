@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114308458317717406}
   - component: {fileID: 114335084248174416}
   - component: {fileID: 95003584285294462}
+  - component: {fileID: 114795418023671150}
   m_Layer: 0
   m_Name: hitujiPhoton2
   m_TagString: Player
@@ -223,9 +224,28 @@ MonoBehaviour:
   ceiling: {fileID: 0}
   woolPrefab: {fileID: 1439061635449626, guid: 7c799e18dd2a643af9f2efd6fb0af82e, type: 2}
   bokaPrefab: {fileID: 1919112097401924, guid: e3f810bba05fb48f6918cb13be9a6ee1, type: 2}
+  speed: 15
+  speed2: 20
+  Mask: {fileID: 0}
+  Mask2: {fileID: 0}
   itoPrafab: {fileID: 1080843253404638, guid: 8a84805fde5074b9abb31670ae107be1, type: 2}
   wool_count: 100
   p: 50
+--- !u!114 &114795418023671150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081762496699798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!136 &136166491707236546
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -35,10 +35,14 @@ public class PlayerController_Photon : MonoBehaviour {
     PhotonView myPhotonView;
     Slider _slider;
     bool swing, jump, boka_exit, mask_flag, mask_flag2;
-    
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+    void Start () {
         Mask = GameObject.Find("Canvas/mask");
         Mask2 = GameObject.Find("Canvas/mask2");
         swing = false;
@@ -206,6 +210,7 @@ public class PlayerController_Photon : MonoBehaviour {
     private void changeScene()
     {
         SceneManager.LoadScene(sceneName);
+        Destroy(this.gameObject);
     }
 
     private void restart(){
