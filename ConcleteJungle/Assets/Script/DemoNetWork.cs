@@ -27,7 +27,6 @@ public class DemoNetWork : Photon.PunBehaviour
         GroupName = GetInput.text;
         if (GroupName.Equals(""))
         {
-            Debug.Log("unko");
             Id = 2;
             PhotonNetwork.JoinRandomRoom();
         }
@@ -87,7 +86,7 @@ public class DemoNetWork : Photon.PunBehaviour
             if(Id == 1){
                 PhotonNetwork.Instantiate("hitujiPhoton1", spawnPosition, Quaternion.identity, 0);
             }
-            if (Id == 2)
+            else
             {
                 PhotonNetwork.Instantiate("hitujiPhoton2", spawnPosition, Quaternion.identity, 0);
             }
