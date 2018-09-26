@@ -27,7 +27,6 @@ public class DemoNetWork : Photon.PunBehaviour
         GroupName = GetInput.text;
         if (GroupName.Equals(""))
         {
-            Debug.Log("unko");
             Id = 2;
             PhotonNetwork.JoinRandomRoom();
         }
