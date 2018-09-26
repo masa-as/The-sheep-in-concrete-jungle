@@ -69,7 +69,7 @@ public class DemoNetWork : Photon.PunBehaviour
     {
         if (start)
         {
-            if(PhotonNetwork.playerList.Length == 1){
+            if(PhotonNetwork.playerList.Length == 2){
                 PhotonNetwork.isMessageQueueRunning = false;
                 SceneManager.LoadScene("Multi");
             }
@@ -87,7 +87,7 @@ public class DemoNetWork : Photon.PunBehaviour
             if(Id == 1){
                 PhotonNetwork.Instantiate("hitujiPhoton1", spawnPosition, Quaternion.identity, 0);
             }
-            if (Id == 2)
+            else
             {
                 PhotonNetwork.Instantiate("hitujiPhoton2", spawnPosition, Quaternion.identity, 0);
             }
