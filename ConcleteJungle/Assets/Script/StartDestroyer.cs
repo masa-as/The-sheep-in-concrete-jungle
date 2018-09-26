@@ -6,7 +6,6 @@ public class StartDestroyer : MonoBehaviour {
 
     void Start() {
         animator = GetComponent<Animator>();
-        Time.timeScale = 0f;
 
     }
     private void Update()
@@ -15,7 +14,6 @@ public class StartDestroyer : MonoBehaviour {
         if (info.normalizedTime >= 1.5)
         {
             Destroy(gameObject);
-            Time.timeScale = 1f;
 
         }
     }

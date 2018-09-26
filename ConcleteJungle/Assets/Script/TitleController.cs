@@ -24,18 +24,18 @@ public class TitleController : MonoBehaviour
 
     public void StartButtonDown()
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = audioClip1;
-        audioSource.Play();
-//        GetComponent<AudioSource>().Play();
-
+        //        GetComponent<AudioSource>().Play();
+        SoundPlay();
         StartButton.SetActive(!StartButton.activeSelf);
         StartButton_push.SetActive(!StartButton_push.activeSelf);
         SceneManager.LoadScene("Select");
     }
 
-    public void Sound(){
+    public void SoundPlay(){
+        //audioSource = gameObject.GetComponent<AudioSource>();
+        //audioSource.clip = audioClip1;
+        Debug.Log("a");
+        GetComponent<AudioSource>().PlayOneShot(audioClip1,1.0f);
 
     }
-
 }
