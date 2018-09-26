@@ -698,7 +698,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 882412886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &882412886
@@ -795,6 +806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartButton: {fileID: 882412883}
   StartButton_push: {fileID: 1386527037}
+  audioClip1: {fileID: 8300000, guid: bbb5ffd14bca644ccbef5fcd2999071f, type: 3}
 --- !u!81 &882412890
 AudioListener:
   m_ObjectHideFlags: 0
@@ -906,7 +918,6 @@ GameObject:
   m_Component:
   - component: {fileID: 936089939}
   - component: {fileID: 936089938}
-  - component: {fileID: 936089937}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -914,13 +925,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &936089937
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 936089936}
-  m_Enabled: 1
 --- !u!20 &936089938
 Camera:
   m_ObjectHideFlags: 0
@@ -1072,6 +1076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartButton: {fileID: 0}
   StartButton_push: {fileID: 0}
+  audioClip1: {fileID: 0}
 --- !u!4 &1332868679
 Transform:
   m_ObjectHideFlags: 0

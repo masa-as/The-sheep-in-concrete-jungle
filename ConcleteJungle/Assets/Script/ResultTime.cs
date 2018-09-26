@@ -21,7 +21,7 @@ public class ResultTime : MonoBehaviour {
         else
             msecText = msec.ToString();
 
-        GetComponent<Text>().text = "Time: " + secText+ "." + msecText;
+        GetComponent<Text>().text = secText+ "\"" + msecText;
 
     }
 

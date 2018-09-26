@@ -13,7 +13,7 @@ public class PlayerController_Photon : MonoBehaviour {
     public GameObject ceiling;
     public GameObject woolPrefab;
     public GameObject bokaPrefab;
-    public float speed = 15;
+    public float speed = 17;
     public float speed2 = 20;
 
     public GameObject Mask;

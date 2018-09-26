@@ -8,7 +8,8 @@ public class TitleController : MonoBehaviour
 
     public GameObject StartButton;
     public GameObject StartButton_push;
-
+    public AudioClip audioClip1;
+    private AudioSource audioSource;
     // Use this for initialization
     void Start()
     {
@@ -23,11 +24,18 @@ public class TitleController : MonoBehaviour
 
     public void StartButtonDown()
     {
-        GetComponent<AudioSource>().Play();
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = audioClip1;
+        audioSource.Play();
+//        GetComponent<AudioSource>().Play();
 
         StartButton.SetActive(!StartButton.activeSelf);
         StartButton_push.SetActive(!StartButton_push.activeSelf);
-        //SceneManager.LoadScene("Select");
+        SceneManager.LoadScene("Select");
+    }
+
+    public void Sound(){
+
     }
 
 }
