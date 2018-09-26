@@ -69,7 +69,7 @@ public class DemoNetWork : Photon.PunBehaviour
     {
         if (start)
         {
-            if(PhotonNetwork.playerList.Length == 2){
+            if(PhotonNetwork.playerList.Length == 1){
                 PhotonNetwork.isMessageQueueRunning = false;
                 SceneManager.LoadScene("Multi");
             }

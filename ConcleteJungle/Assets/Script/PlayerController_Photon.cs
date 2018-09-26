@@ -115,6 +115,9 @@ public class PlayerController_Photon : MonoBehaviour {
                     wool_count -= leng * 7;
                     swing = false;
                 }
+                else{
+                    swing = false;
+                }
             }
             if (jump)
             {
@@ -156,7 +159,7 @@ public class PlayerController_Photon : MonoBehaviour {
                 pos = transform.position;
 
                 sceneName = "Lose";
-                waitChangeScene(0.2f);
+                waitChangeScene(1.2f);
             }
         }
 
@@ -191,14 +194,11 @@ public class PlayerController_Photon : MonoBehaviour {
     }
 
     private void restart(){
-        if (Input.GetMouseButtonDown(0))
-        {
-            Destroy(ito);
-            Destroy(joint);
-            joint = null;
-        }
-        wool_count = 50;
         pos.y = 15f;
         transform.position = pos;
+        wool_count = 50;
+        Destroy(ito);
+        Destroy(joint);
+        joint = null;
     }
 }

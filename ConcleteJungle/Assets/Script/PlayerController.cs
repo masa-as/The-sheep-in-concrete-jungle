@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.gameObject.name == "ground")
         {
-            sceneName = "Lose";
+            sceneName = "GameOver";
             waitChangeScene(1.0f);
         }
         if (collision.gameObject.name == "Goal")
