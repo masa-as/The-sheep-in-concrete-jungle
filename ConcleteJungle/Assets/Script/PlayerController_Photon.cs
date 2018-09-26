@@ -13,8 +13,11 @@ public class PlayerController_Photon : MonoBehaviour {
     public GameObject ceiling;
     public GameObject woolPrefab;
     public GameObject bokaPrefab;
-    public float speed = 10;
+    public float speed = 15;
+    public float speed2 = 20;
+
     public GameObject Mask;
+    public GameObject Mask2;
 
     GameObject wool;
     Vector3 ceiling_pos;
@@ -31,15 +34,17 @@ public class PlayerController_Photon : MonoBehaviour {
     public int p; //woolの出現確率
     PhotonView myPhotonView;
     Slider _slider;
-    bool swing, jump, boka_exit, mask_flag;
+    bool swing, jump, boka_exit, mask_flag, mask_flag2;
     
 
 	// Use this for initialization
 	void Start () {
         Mask = GameObject.Find("Canvas/mask");
+        Mask2 = GameObject.Find("Canvas/mask2");
         swing = false;
         jump = false;
         mask_flag = false;
+        mask_flag2 = false;
         this.myPhotonView = GetComponent<PhotonView>();
         _slider = GameObject.Find("WoolBar").GetComponent<Slider>();
         ceiling = GameObject.Find("ceiling");
@@ -80,6 +85,16 @@ public class PlayerController_Photon : MonoBehaviour {
                 speed = 0;
             }
         }
+
+        if (mask_flag2 == true)
+        {
+            Mask2.transform.position += Vector3.down * speed2;
+            if (Mask2.transform.position.y <= 389)
+            {
+                speed2 = 0;
+            }
+        }
+
 
         if (this.myPhotonView.isMine){
             pos = transform.position;
@@ -157,7 +172,7 @@ public class PlayerController_Photon : MonoBehaviour {
             }
             else{
                 pos = transform.position;
-
+                mask_flag2 = true;
                 sceneName = "Lose";
                 waitChangeScene(1.2f);
             }
