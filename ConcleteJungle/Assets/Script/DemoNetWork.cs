@@ -20,10 +20,12 @@ public class DemoNetWork : Photon.PunBehaviour
         SceneManager.sceneLoaded += OnLoadedScene;
         PhotonNetwork.ConnectUsingSettings("0.1");
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
+        Button.SetActive(false);
     }
 
     public void buttonDown()
     {
+        Button.SetActive(false);
         GroupName = GetInput.text;
         if (GroupName.Equals(""))
         {
@@ -40,7 +42,7 @@ public class DemoNetWork : Photon.PunBehaviour
 
     public override void OnJoinedLobby()
     {
-        Button.SetActive(!Button.activeSelf);
+        Button.SetActive(true);
     }
 
     public override void OnPhotonRandomJoinFailed(object[] codeAndMsg)
@@ -61,7 +63,6 @@ public class DemoNetWork : Photon.PunBehaviour
     { 
         start = true;
         Debug.Log("人数：" + PhotonNetwork.playerList.Length);
-        Button.SetActive(!Button.activeSelf);
     }
 
     public void FixedUpdate()
@@ -69,7 +70,7 @@ public class DemoNetWork : Photon.PunBehaviour
         if (start)
         {
             if(PhotonNetwork.playerList.Length == 2){
-                PhotonNetwork.isMessageQueueRunning = false;
+                PhotonNetwork.isMessageQueueRunning = false;         
                 SceneManager.LoadScene("Multi");
             }
             //ルームの人数検索（２人だったらゲーム開始） 
@@ -78,6 +79,7 @@ public class DemoNetWork : Photon.PunBehaviour
 
     private void OnLoadedScene(Scene i_scene, LoadSceneMode i_mode)
     {
+        Debug.Log("Onload");
         // シーンの遷移が完了したら自分用のオブジェクトを生成.
         if (i_scene.name == "Multi" && start)
         {
@@ -85,10 +87,12 @@ public class DemoNetWork : Photon.PunBehaviour
             Vector3 spawnPosition = new Vector3(0, 15-(Id-1)*5, 0);
             if(Id == 1){
                 PhotonNetwork.Instantiate("hitujiPhoton1", spawnPosition, Quaternion.identity, 0);
+                Debug.Log("1P");
             }
             else
             {
                 PhotonNetwork.Instantiate("hitujiPhoton2", spawnPosition, Quaternion.identity, 0);
+                Debug.Log("2P");
             }
             start = false;
         }
@@ -96,10 +100,11 @@ public class DemoNetWork : Photon.PunBehaviour
 
     public override void OnLeftRoom()
     {
-        Button.SetActive(!Button.activeSelf);
+        Button.SetActive(true);
         GetInput.text = null;
         SceneManager.sceneLoaded += OnLoadedScene;
         PhotonNetwork.ConnectUsingSettings("0.1");
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
     }
+
 }

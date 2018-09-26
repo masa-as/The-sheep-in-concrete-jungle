@@ -68,7 +68,7 @@ public class fieldController : MonoBehaviour {
         ground.transform.position = new Vector3((length + 50f) / 2f, -10f, 0f);
 
 
-        wall.transform.position = new Vector3(pos_building.x, 20, 0);
+        wall.transform.position = new Vector3(pos_building.x-5, 20, 0);
 
 	}
     void Update()

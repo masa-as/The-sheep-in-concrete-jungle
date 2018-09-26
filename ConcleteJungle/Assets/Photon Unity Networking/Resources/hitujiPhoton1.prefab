@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114418912190423636}
   - component: {fileID: 114250122455006238}
   - component: {fileID: 95354593714655564}
+  - component: {fileID: 114762754666008334}
   m_Layer: 0
   m_Name: hitujiPhoton1
   m_TagString: Player
@@ -135,6 +136,10 @@ MonoBehaviour:
   ceiling: {fileID: 0}
   woolPrefab: {fileID: 1439061635449626, guid: 7c799e18dd2a643af9f2efd6fb0af82e, type: 2}
   bokaPrefab: {fileID: 1919112097401924, guid: e3f810bba05fb48f6918cb13be9a6ee1, type: 2}
+  speed: 10
+  speed2: 20
+  Mask: {fileID: 0}
+  Mask2: {fileID: 0}
   itoPrafab: {fileID: 1080843253404638, guid: 8a84805fde5074b9abb31670ae107be1, type: 2}
   wool_count: 100
   p: 50
@@ -149,6 +154,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414387fcbb6344c3dbc9b97164630c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114762754666008334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132611233076064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: Swinging
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!114 &114998236527713096
 MonoBehaviour:
   m_ObjectHideFlags: 1
