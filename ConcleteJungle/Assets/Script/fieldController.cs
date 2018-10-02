@@ -11,7 +11,6 @@ public class fieldController : MonoBehaviour {
 
     GameObject build;
 
-    public GameObject player;
     public GameObject goal;
     public GameObject ceiling;
     public GameObject ground;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -17,30 +18,36 @@ public class PlayerController : MonoBehaviour {
     GameObject ito;
     HingeJoint joint, joint_ito;
     Rigidbody rb_player;
+
     public float wool_count;
     public int p; //woolの出現確率
+    Slider _slider;
+    // Use this for initialization
+    void Start () {
 
-
-	// Use this for initialization
-	void Start () {
         ceiling = GameObject.Find("ceiling");
         ceiling_pos = ceiling.transform.position;
         pos_camera = Camera.main.transform.position;
         target_pos = pos_camera.x;
         rb_player = GetComponent<Rigidbody>();
         rb_player.AddForce(30, 0, 0, ForceMode.Impulse);
-	}
-	
-	// Update is called once per
+        // スライダーを取得する
+        _slider = GameObject.Find("WoolBar").GetComponent<Slider>();
+
+    }
+
+    // Update is called once per
     void Update () {
         int ito_flag2 =PauseScript.GetItoFlag();
-        if (Input.GetMouseButtonDown(0) && ito_flag2 == 1){
+        if (Input.GetMouseButtonDown(0) && ito_flag2 == 1)
+        {
             pos = transform.position;
             pos_ito = pos;
             dirY = ceiling_pos.y - pos.y;
             dirX = dirY;
             leng = Mathf.Sqrt(dirX * dirX + dirY * dirY) * 0.065f;//画像差し替えたら調節
-            if((wool_count - leng*20f) > 0){
+            if ((wool_count - leng * 20f) > 0)
+            {
                 ito = Instantiate(itoPrafab) as GameObject;
                 ito.transform.Rotate(0f, 0f, -45.0f);
                 ito.transform.localScale = new Vector3(0.4f, leng, 0f);
@@ -65,18 +72,24 @@ public class PlayerController : MonoBehaviour {
                 wool_count -= leng * 10;
             }
         }
-        if(Input.GetMouseButtonUp(0) && ito_flag2 == 1){
+        if (Input.GetMouseButtonUp(0) && ito_flag2 == 1)
+        {
             Destroy(ito);
             Destroy(joint);
             joint = null;
-            if (Random.Range(0, 100) < p){
+            if (Random.Range(0, 100) < p)
+            {
                 wool = Instantiate(woolPrefab) as GameObject;
                 wool.transform.position = new Vector3(transform.position.x + 30f, Random.Range(5.0f, 10.0f), 0f);
-            }
-
+            } 
         }
         pos_camera.x = transform.position.x;
         Camera.main.transform.position = pos_camera;
+
+        //ウールバー長さ更新
+        Debug.Log(wool);
+        _slider.value = wool_count/100;
+
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -158,7 +158,6 @@ MonoBehaviour:
   build_b_pre: {fileID: 1684604861381000, guid: 6c33c16d8819a49b7b6fa7c964831771,
     type: 2}
   goal_appear: 100
-  player: {fileID: 0}
   goal: {fileID: 1371137884}
   ceiling: {fileID: 1402106436}
   ground: {fileID: 959274770}
@@ -1531,25 +1530,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1789601749}
-  - component: {fileID: 1789601748}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: NetworkDirector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1789601748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1789601747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6a8503fdc8804a54934574cfd62077a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_IsActive: 0
 --- !u!4 &1789601749
 Transform:
   m_ObjectHideFlags: 0
